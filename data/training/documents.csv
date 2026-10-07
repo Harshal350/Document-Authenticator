@@ -1,0 +1,1308 @@
+# DEMO DATASET - Replace with real/collected dataset before final evaluation
+document_id,text,document_type,label
+DOC-CERT-001,"CERTIFICATE OF INCORPORATION
+This is to certify that Greenfield Technologies Pvt. Ltd. has been incorporated under the Companies Act, 2013 (Act No. 18 of 2013) on the 14th day of March, 2019. The Registered Office of the company is situated at 42/B, Rajiv Gandhi Infotech Park, Hinjewadi Phase II, Pune, Maharashtra 411057. CIN: U72200PN2019PTC182456. The authorized capital of the company is Rupees One Crore (Rs. 1,00,00,000/-) divided into 1,00,000 equity shares of Rs. 10/- each. This certificate is issued under the seal of the Registrar of Companies.",Certificate,0
+DOC-CERT-002,"CERTIFICATE OF REGISTRATION
+Registrar of Companies, Mumbai hereby certifies that Skyline Builders and Developers, a partnership firm registered under the Indian Partnership Act, 1932, has been entered in the Register of Firms maintained at this office. Registration No.: MH/PA/2021/4587. Date of Registration: 22nd September, 2021. Partners: (1) Mr. Vikram R. Mehta, (2) Mrs. Anjali V. Mehta. Firm Address: Flat 12, Lotus Residency, Andheri East, Mumbai 400069. This registration is valid until further notice.",Certificate,0
+DOC-CERT-003,"ISO 9001:2015 CERTIFICATE
+Certificate No.: QMS-IND-2023-7891
+Scope: Design, manufacture, and supply of precision engineering components
+Certified Organization: Bharat Precision Tools Ltd.
+Address: Plot 15, MIDC Industrial Area, Aurangabad, Maharashtra 431001
+Date of Issue: 5th January 2023
+Expiry Date: 4th January 2026
+Audited by: CertifySure International, Accredited by NABCB under DPIIT, Ministry of Commerce, Government of India. This certificate confirms that the Quality Management System of the above organization has been audited and found to comply with the requirements of ISO 9001:2015.",Certificate,0
+DOC-CERT-004,"DEGREE CERTIFICATION
+This is to certify that Ms. Priya Suresh Kulkarni, born on 15th July, 1998, has successfully completed the degree of Master of Computer Applications (M.C.A.) from Savitribai Phule Pune University in the academic year 2019-2022. Roll No.: 2019004587. Result: First Class with Distinction. CGPA: 8.72/10.0. This is issued for the purpose of employment and higher studies. University Seal and Registrar's Signature affixed. Date of Issue: 30th June 2022.",Certificate,0
+DOC-CERT-005,"FIRE SAFETY CERTIFICATE
+Issued under the Maharashtra Fire Prevention and Life Safety Measures Act, 2006
+Building Name: Usha Commercial Complex, Shop No. 301-310
+Address: MG Road, Fort, Mumbai, Maharashtra 400001
+Owner: Usha Holdings Pvt. Ltd. (CIN: U45200MH2015PTC268741)
+Inspection Date: 18th November 2024
+Validity: 18th November 2025
+Certified that the above premises have been inspected by the undersigned and found to comply with all applicable fire safety norms. Fire extinguishers, sprinkler systems, emergency exits, and fire alarm systems are in proper working condition.",Certificate,0
+DOC-CERT-006,"CERTIFICATE OF INCORPORATION
+This is to certify that Globaltech Solutions Pvt. Ltd. has been incorporated under the Companies Act, 2013 (Act No. 18 of 2013) on the 32nd day of February, 2019. The Registered Office of the company is situated at 42/B, Rajiv Gandhi Infotech Park, Hinjewadi Phase II, Pune, Maharashtra 411057. CIN: U72200PN2019PTC182456. The authorized capital of the company is Rupees Ten Crore (Rs. 10,00,00,000/-) divided into 1,00,00,000 equity shares of Rs. 10/- each. This certificate is issued under the seal of the Registrar of Companies.",Certificate,1
+DOC-CERT-007,"CERTIFICATE OF REGISTRATION
+Registrar of Companies, Mumbai hereby certifies that Golden Builders and Developers, a partnership firm registered under the Indian Partnership Act, 1932, has been entered in the Register of Firms maintained at this office. Registration No.: MH/PA/2021/4587. Date of Registration: 22nd September, 2021. Partners: (1) Mr. Vikram R. Mehta, (2) Mr. Vikram R. Mehta. Firm Address: Flat 12, Lotus Residency, Andheri East, Mumbai 400069. This registration is valid until further notice. Firm Address: Flat 12, Lotus Residency, Andheri East, Mumbai 400069.",Certificate,1
+DOC-CERT-008,"ISO 9001:2015 CERTIFICATE
+Certificate No.: QMS-IND-2023-7891
+Scope: Design, manufacture, and supply of precision engineering components
+Certified Organization: Bharat Precision Tools Ltd.
+Address: Plot 15, MIDC Industrial Area, Aurangabad, Maharashtra 431001
+Date of Issue: 5th January 2023
+Expiry Date: 4th January 2022
+Audited by: CertifySure International, Accredited by NABCB under DPIIT, Ministry of Commerce, Government of India. This certificate confirms that the Quality Management System of the above organization has been audited and found to comply with the requirements of ISO 9001:2015.",Certificate,1
+DOC-CERT-009,"DEGREE CERTIFICATION
+This is to certify that Mr. Rahul Verma, born on 28th February, 1995, has successfully completed the degree of Master of Business Administration (MBA) from the University of Mumbai in the academic year 2017-2019. Roll No.: 2017012345. Result: First Class. CGPA: 7.85/10.0. This is issued for the purpose of employment and higher studies. This is issued for the purpose of employment and higher studies. University Seal and Registrar's Signature affixed. Date of Issue: 15th May 2019.",Certificate,1
+DOC-CERT-010,"FIRE SAFETY CERTIFICATE
+Issued under the Maharashtra Fire Prevention and Life Safety Measures Act, 2006
+Building Name: Usha Commercial Complex, Shop No. 301-310
+Address: MG Road, Fort, Mumbai, Maharashtra 400001
+Owner: Usha Holdings Pvt. Ltd. (CIN: U45200MH2015PTC268741)
+Inspection Date: 18th November 2024
+Validity: 18th November 2023
+Certified that the above premises have been inspected by the undersigned and found to comply with all applicable fire safety norms. Fire extinguishers, sprinkler systems, emergency exits, and fire alarm systems are in proper working condition.",Certificate,1
+DOC-INV-001,"TAX INVOICE
+Invoice No.: INV-2025-00456
+Date: 12th March 2025
+From: Apex Electronics Pvt. Ltd.
+GSTIN: 27AABCA1234N1Z5
+Address: Unit 4, Omega Industrial Estate, Navi Mumbai, Maharashtra 400706
+To: Sunrise Schools Foundation
+GSTIN: 27AADCS5678K1ZP
+Address: 89, Sector 15, Vashi, Navi Mumbai, Maharashtra 400703
+Description of Goods:
+1. Dell Latitude 5540 Laptop, Qty: 20, Rate: Rs. 72,500.00, Amount: Rs. 14,50,000.00
+2. Wireless Mouse (Logitech M240), Qty: 20, Rate: Rs. 899.00, Amount: Rs. 17,980.00
+3. Laptop Bag (Targus 15.6 inch), Qty: 20, Rate: Rs. 1,250.00, Amount: Rs. 25,000.00
+Subtotal: Rs. 14,92,980.00
+CGST @9%: Rs. 1,34,368.20
+SGST @9%: Rs. 1,34,368.20
+Total: Rs. 17,61,716.40
+Payment Terms: Net 30 days
+Bank: HDFC Bank, Vashi Branch, A/c No: 50100012345678, IFSC: HDFC0001234",Invoice,0
+DOC-INV-002,"TAX INVOICE
+Invoice No.: INV-2025-00457
+Date: 15th March 2025
+From: GreenLeaf Organic Foods Pvt. Ltd.
+GSTIN: 24AABCG9876N1Z2
+Address: Plot 22, GIDC Estate, Sector 28, Gandhinagar, Gujarat 382028
+To: Fresh Basket Supermarket
+GSTIN: 24AADCF4321K1Z8
+Address: 101, Mall Road, Navrangpura, Ahmedabad, Gujarat 380009
+Description of Goods:
+1. Organic Basmati Rice (10 kg pack), Qty: 500, Rate: Rs. 450.00, Amount: Rs. 2,25,000.00
+2. Cold-Pressed Mustard Oil (1 L), Qty: 1000, Rate: Rs. 185.00, Amount: Rs. 1,85,000.00
+3. Organic Turmeric Powder (500 g), Qty: 800, Rate: Rs. 95.00, Amount: Rs. 76,000.00
+Subtotal: Rs. 4,86,000.00
+CGST @2.5%: Rs. 12,150.00
+SGST @2.5%: Rs. 12,150.00
+Total: Rs. 5,10,300.00
+Payment Terms: Net 15 days
+Bank: ICICI Bank, Gandhinagar Branch, A/c No: 123456789012, IFSC: ICIC0001234",Invoice,0
+DOC-INV-003,"PROFORMA INVOICE
+Invoice No.: PI-2025-01892
+Date: 8th February 2025
+From: TechNova Solutions
+GSTIN: 29AABCT1111N1Z4
+Address: 5th Floor, Brigade Gateway, Rajajinagar, Bangalore, Karnataka 560055
+To: Mehta Engineering Works
+GSTIN: 29AABCM9999K1Z6
+Address: 14/2, Peenya Industrial Area Phase 3, Bangalore, Karnataka 560058
+Description of Goods:
+1. CNC Milling Machine (Model TM-400), Qty: 2, Rate: Rs. 18,50,000.00, Amount: Rs. 37,00,000.00
+2. Installation & Commissioning Charges, Qty: 1, Rate: Rs. 1,25,000.00, Amount: Rs. 1,25,000.00
+Subtotal: Rs. 38,25,000.00
+CGST @9%: Rs. 3,44,250.00
+SGST @9%: Rs. 3,44,250.00
+Total: Rs. 45,13,500.00
+Validity: 30 days from date of invoice
+Bank: State Bank of India, Rajajinagar Branch, A/c No: 30214567890, IFSC: SBIN0005678",Invoice,0
+DOC-INV-004,"INVOICE
+Invoice No.: CST/2025/2234
+Date: 28th March 2025
+From: Rainbow Textiles Ltd.
+CIN: L17110MH1998PLC112233
+Address: Room 401,纱商大楼, Dadar TT Circle, Mumbai, Maharashtra 400014
+To: Fashion Hub Retail Pvt. Ltd.
+GSTIN: 27AABCF7654N1Z7
+Address: 56, Hill Road, Bandra West, Mumbai, Maharashtra 400050
+Description of Goods:
+1. Premium Cotton Fabric (White, 60 inch width), Qty: 2000 meters, Rate: Rs. 120.00/meter, Amount: Rs. 2,40,000.00
+2. Polyester Blend Fabric (Blue, 58 inch width), Qty: 1500 meters, Rate: Rs. 95.00/meter, Amount: Rs. 1,42,500.00
+Subtotal: Rs. 3,82,500.00
+CGST @6%: Rs. 22,950.00
+SGST @6%: Rs. 22,950.00
+Total: Rs. 4,28,400.00
+Payment Terms: 50% advance, balance against delivery
+Bank: Bank of Maharashtra, Dadar Branch, A/c No: 601234567890, IFSC: MAHB0000123",Invoice,0
+DOC-INV-005,"ELECTRICITY BILL
+Bill No.: MSEDCL-2025-987654
+Account No.: 300456123456789
+Consumer Name: Pratiksha Residency Cooperative Housing Society
+Address: Plot 78, Sector 22, Airoli, Navi Mumbai, Maharashtra 400708
+Bill Period: February 2025 (01/02/2025 to 28/02/2025)
+Previous Reading: 45,678 kWh
+Current Reading: 47,234 kWh
+Units Consumed: 1,556 kWh
+Tariff: LT-II (Residential Society Common Area)
+Energy Charges: Rs. 11,670.00
+Fixed Charges: Rs. 540.00
+Electricity Duty: Rs. 155.60
+Total Amount: Rs. 12,365.60
+Due Date: 25th March 2025
+Late Payment Surcharge: 1.5% per month after due date",Invoice,0
+DOC-INV-006,"TAX INVOICE
+Invoice No.: INV-2025-00456
+Date: 12th March 2025
+From: Apex Electronics Pvt. Ltd.
+GSTIN: 27AABCA1234N1Z5
+Address: Unit 4, Omega Industrial Estate, Navi Mumbai, Maharashtra 400706
+To: Sunrise Schools Foundation
+GSTIN: 27AADCS5678K1ZP
+Address: 89, Sector 15, Vashi, Navi Mumbai, Maharashtra 400703
+Description of Goods:
+1. Dell Latitude 5540 Laptop, Qty: 20, Rate: Rs. 72,500.00, Amount: Rs. 14,50,000.00
+2. Wireless Mouse (Logitech M240), Qty: 20, Rate: Rs. 899.00, Amount: Rs. 17,980.00
+3. Laptop Bag (Targus 15.6 inch), Qty: 20, Rate: Rs. 1,250.00, Amount: Rs. 25,000.00
+Subtotal: Rs. 14,92,980.00
+CGST @9%: Rs. 1,34,368.00
+SGST @9%: Rs. 1,34,368.00
+Total: Rs. 18,61,716.00
+Payment Terms: Net 30 days
+Bank: HDFC Bank, Vashi Branch, A/c No: 50100012345678, IFSC: HDFC0001234",Invoice,1
+DOC-INV-007,"TAX INVOICE
+Invoice No.: INV-2025-00789
+Date: 5th April 2025
+From: Star Pharma Distributors
+GSTIN: 27AABCS1111N1Z9
+Address: 204, Zaveri Bazaar, Mumbai, Maharashtra 400003
+To: LifeCare Hospital Pvt. Ltd.
+GSTIN: 27AABCL2222K1Z1
+Address: Plot 12, MG Road, Parel, Mumbai, Maharashtra 400013
+Description of Goods:
+1. Paracetamol 500mg Tablets (Strip of 10), Qty: 10000, Rate: Rs. 45.00, Amount: Rs. 4,50,000.00
+2. Amoxicillin 250mg Capsules (Strip of 10), Qty: 5000, Rate: Rs. 85.00, Amount: Rs. 4,25,000.00
+3. Disposable Syringes 5ml (Box of 100), Qty: 200, Rate: Rs. 750.00, Amount: Rs. 1,50,000.00
+Subtotal: Rs. 10,25,000.00
+CGST @12%: Rs. 1,23,000.00
+SGST @12%: Rs. 1,23,000.00
+Total: Rs. 12,71,000.00
+Payment Terms: Net 45 days
+Bank: Axis Bank, Zaveri Bazaar Branch, A/c No: 91234567890, IFSC: UTIB0001234",Invoice,1
+DOC-INV-008,"PROFORMA INVOICE
+Invoice No.: PI-2025-03456
+Date: 20th March 2025
+From: Constructions R Us Pvt. Ltd.
+GSTIN: 29AABCC3333N1Z3
+Address: 78, Whitefield Main Road, Bangalore, Karnataka 560066
+To: Prestige Home Builders
+GSTIN: 29AABCP4444K1Z5
+Address: 23, Residency Road, Bangalore, Karnataka 560025
+Description of Goods:
+1. TMT Steel Bars Fe-500D (12mm), Qty: 50 tonnes, Rate: Rs. 58,500.00/tonne, Amount: Rs. 29,25,000.00
+2. Portland Cement OPC 53 Grade, Qty: 2000 bags, Rate: Rs. 380.00/bag, Amount: Rs. 7,60,000.00
+3. River Sand (Unit: Cubic Meter), Qty: 150, Rate: Rs. 3,200.00, Amount: Rs. 4,80,000.00
+Subtotal: Rs. 41,65,000.00
+CGST @18%: Rs. 3,74,850.00
+SGST @18%: Rs. 3,74,850.00
+Total: Rs. 49,14,700.00
+Validity: 15 days from date of invoice
+Bank: Canara Bank, Whitefield Branch, A/c No: 123004567890, IFSC: CNRB0001234",Invoice,1
+DOC-INV-009,"INVOICE
+Invoice No.: REST-2025/890
+Date: 10th January 2025
+From: Spice Garden Restaurant
+FSSAI No.: 10019023004567
+Address: 34, Juhu Tara Road, Juhu, Mumbai, Maharashtra 400049
+To: Mumbai Corporate Catering Services
+GSTIN: 27AABCM8888N1Z2
+Description of Goods:
+1. Catering Service - Annual Day Event (500 pax), Qty: 1, Rate: Rs. 850.00, Amount: Rs. 4,25,000.00
+2. Premium Non-Veg Buffet (per plate), Qty: 500, Rate: Rs. 650.00, Amount: Rs. 3,25,000.00
+3. Soft Beverages Package (per person), Qty: 500, Rate: Rs. 150.00, Amount: Rs. 75,000.00
+Subtotal: Rs. 8,25,000.00
+SGST @5%: Rs. 20,625.00
+CGST @5%: Rs. 20,625.00
+Total: Rs. 8,66,250.00
+Payment Terms: Advance 100%
+Bank: Kotak Mahindra Bank, Juhu Branch, A/c No: 34567890123, IFSC: KKBK0001234",Invoice,1
+DOC-INV-010,"ELECTRICITY BILL
+Bill No.: MSEDCL-2025-112233
+Account No.: 300789123456789
+Consumer Name: Sunrise Apartments Cooperative Housing Society
+Address: Tower B, Greenview Enclave, Thane West, Maharashtra 400601
+Bill Period: February 2025 (01/02/2025 to 28/02/2025)
+Previous Reading: 34,567 kWh
+Current Reading: 35,432 kWh
+Units Consumed: 865 kWh
+Tariff: LT-I (Residential)
+Energy Charges: Rs. 6,487.50
+Fixed Charges: Rs. 360.00
+Electricity Duty: Rs. 86.50
+Total Amount: Rs. 6,934.00
+Due Date: 25th March 2025
+Late Payment Surcharge: 1.5% per month after due date
+Note: This is a system-generated bill. No signature required.",Invoice,1
+DOC-RES-001,"CURRICULUM VITAE
+RAHUL ANAND SHARMA
+Email: rahul.sharma@email.com | Phone: +91-98765-43210
+Address: 45/B, Sector 12, Noida, Uttar Pradesh 201301
+
+PROFESSIONAL SUMMARY
+Results-driven software engineer with 7+ years of experience in full-stack web development specializing in Java, Spring Boot, and React.js. Led migration of monolithic application to microservices architecture reducing deployment time by 60%. Certified AWS Solutions Architect.
+
+EDUCATION
+B.Tech in Computer Science and Engineering
+Indian Institute of Technology, Delhi (2013-2017)
+CGPA: 8.9/10
+
+WORK EXPERIENCE
+Senior Software Engineer | Infosys Ltd., Bangalore | Jan 2020 - Present
+- Designed and implemented RESTful APIs serving 2M+ daily requests
+- Mentored team of 5 junior developers
+- Reduced API response time by 40% through database query optimization
+
+Software Engineer | TCS, Hyderabad | Jul 2017 - Dec 2019
+- Developed microservices using Spring Boot and Docker
+- Implemented CI/CD pipelines using Jenkins and GitLab CI
+- Collaborated with cross-functional teams in Agile/Scrum environment
+
+TECHNICAL SKILLS
+Languages: Java, Python, JavaScript, SQL
+Frameworks: Spring Boot, React.js, Node.js
+Tools: Docker, Kubernetes, Jenkins, Git, AWS (EC2, S3, Lambda)
+Database: MySQL, PostgreSQL, MongoDB
+
+CERTIFICATIONS
+- AWS Certified Solutions Architect - Associate (2022)
+- Oracle Certified Professional, Java SE 11 Developer (2021)",Resume/Employment,0
+DOC-RES-002,"RESUME
+ANITA RAMESH KULKARNI
+Email: anita.kulkarni@gmail.com | Phone: +91-91234-56789
+Address: 12, Sahakar Nagar, Pune, Maharashtra 411009
+
+OBJECTIVE
+Dedicated marketing professional seeking to leverage 5 years of experience in digital marketing and brand management to drive growth at a forward-thinking organization.
+
+EXPERIENCE
+Marketing Manager | Godrej Consumer Products Ltd., Mumbai | Mar 2021 - Present
+- Managed digital marketing budget of Rs. 2.5 crore annually
+- Increased social media engagement by 180% across all platforms
+- Led product launch campaigns achieving 35% above sales targets
+- Supervised team of 8 marketing executives
+
+Assistant Marketing Executive | Hindustan Unilever Ltd., Mumbai | Jun 2019 - Feb 2021
+- Coordinated 12+ multi-channel campaigns for personal care portfolio
+- Conducted market research and competitor analysis for rural markets
+- Managed relationships with 50+ media agencies and vendors
+
+EDUCATION
+MBA in Marketing | Symbiosis Centre for Management Studies, Pune | 2017-2019
+B.Com (Hons.) | Fergusson College, Pune | 2014-2017
+
+SKILLS
+Digital Marketing (SEO, SEM, SMM), Brand Management, Market Research, Google Analytics, HubSpot CRM, MS Office Suite, Data Analysis
+
+LANGUAGES
+English (Fluent), Hindi (Native), Marathi (Native), Gujarati (Conversational)",Resume/Employment,0
+DOC-RES-003,"CURRICULUM VITAE
+DR. MEERA VISHWANATH PATIL
+Email: meera.patil@aiims.edu | Phone: +91-98111-22334
+Address: Faculty Housing, AIIMS Campus, New Delhi 110029
+
+ACADEMIC QUALIFICATIONS
+Ph.D. in Neurosciences | All India Institute of Medical Sciences, New Delhi | 2014-2019
+M.B.B.S. | Grant Medical College and Sir J.J. Group of Hospitals, Mumbai | 2007-2013
+M.D. (Physiology) | AIIMS, New Delhi | 2013-2016
+
+PROFESSIONAL EXPERIENCE
+Assistant Professor, Department of Neurophysiology | AIIMS, New Delhi | Jul 2019 - Present
+- Teaching MBBS and MD students in neurophysiology
+- Principal Investigator on 3 ICMR-funded research projects
+- Published 18 peer-reviewed articles in indexed journals
+- Guided 6 postgraduate dissertations
+
+Research Associate | National Brain Research Centre, Gurugram | Jan 2019 - Jun 2019
+- Conducted EEG and fMRI studies on epilepsy patients
+- Developed novel analysis pipeline for event-related potentials
+
+AWARDS & HONORS
+- Best Paper Award, Indian Society for Neuroscience, Annual Conference 2023
+- ICMR Senior Research Fellowship (2016-2019)
+- Gold Medal in M.D. Physiology, AIIMS (2016)
+
+MEMBERSHIPS
+- Indian Society for Neuroscience (Life Member)
+- Physiological Society of India
+- Society for Neuroscience (International)",Resume/Employment,0
+DOC-RES-004,"CURRICULUM VITAE
+DEEPAK KUMAR GUPTA
+Email: deepak.gupta@outlook.com | Phone: +91-99887-76655
+Address: 78, Lajpat Nagar II, New Delhi 110024
+
+PROFESSIONAL SUMMARY
+Experienced civil engineer with 12 years in infrastructure project management. Expert in highway construction, bridge design, and urban infrastructure development. Managed projects valued over Rs. 500 crore.
+
+WORK EXPERIENCE
+Deputy General Manager | National Highways Authority of India (NHAI), New Delhi | Apr 2019 - Present
+- Oversee construction of 250 km of national highway in Uttar Pradesh
+- Managed project budget of Rs. 320 crore with 98.5% timely completion
+- Coordinated with 15 contractors and 8 government agencies
+
+Senior Project Engineer | L&T Construction, Chennai | May 2014 - Mar 2019
+- Led bridge construction team for Chennai Metro Phase 1
+- Supervised daily workforce of 200+ laborers and 30 engineers
+- Achieved zero-accident record for 1,800 working days
+
+Project Engineer | Gammon India Ltd., Pune | Jun 2012 - Apr 2014
+- Executed pile foundation works for 3 flyovers in Pune city
+- Quality control and material testing as per IRC standards
+
+EDUCATION
+M.Tech in Structural Engineering | IIT Madras | 2010-2012
+B.E. in Civil Engineering | Visvesvaraya Technological University, Belgaum | 2006-2010
+
+PROFESSIONAL AFFILIATIONS
+- Institution of Engineers (India) - Fellow
+- Indian Roads Congress - Member
+- Council of Architecture - Registered",Resume/Employment,0
+DOC-RES-005,"CURRICULUM VITAE
+SONALI AMIT DESHPANDE
+Email: sonali.deshpande@yahoo.com | Phone: +91-98765-11223
+Address: 23, Prabhat Road, Erandwane, Pune, Maharashtra 411004
+
+PROFESSIONAL SUMMARY
+Creative and detail-oriented graphic designer with 6 years of experience in visual communication, brand identity, and UI/UX design. Proficient in Adobe Creative Suite, Figma, and Sketch. Portfolio includes work for 30+ brands across FMCG, technology, and hospitality sectors.
+
+EXPERIENCE
+Lead Designer | PubMatic, Pune | Feb 2021 - Present
+- Design marketing collateral for B2B ad-tech platform
+- Rebranding project: Updated visual identity for 15 product lines
+- Created design system reducing production time by 45%
+
+UI/UX Designer | Zensar Technologies, Pune | Aug 2018 - Jan 2021
+- Designed user interfaces for 10+ enterprise web applications
+- Conducted user research with 200+ participants
+- Prototyped and tested designs achieving 92% user satisfaction
+
+EDUCATION
+B.Des. in Graphic Design | National Institute of Design, Ahmedabad | 2014-2018
+
+TOOLS & SOFTWARE
+Adobe Photoshop, Illustrator, InDesign, After Effects, XD
+Figma, Sketch, InVision, Principle
+HTML/CSS, Basic JavaScript
+
+PORTFOLIO: www.sonalidesigns.com",Resume/Employment,0
+DOC-RES-006,"CURRICULUM VITAE
+RAHUL ANAND SHARMA
+Email: rahul.sharma@email.com | Phone: +91-98765-43210
+Address: 45/B, Sector 12, Noida, Uttar Pradesh 201301
+
+PROFESSIONAL SUMMARY
+Results-driven software engineer with 7+ years of experience in full-stack web development specializing in Java, Spring Boot, and React.js. Led migration of monolithic application to microservices architecture reducing deployment time by 60%. Certified AWS Solutions Architect.
+
+EDUCATION
+B.Tech in Computer Science and Engineering
+Indian Institute of Technology, Delhi (2013-2017)
+CGPA: 8.9/10
+
+WORK EXPERIENCE
+Senior Software Engineer | Infosys Ltd., Bangalore | Jan 2020 - Present
+- Designed and implemented RESTful APIs serving 2M+ daily requests
+- Mentored team of 5 junior developers
+- Reduced API response time by 40% through database query optimization
+
+Software Engineer | TCS, Hyderabad | Jul 2017 - Dec 2019
+- Developed microservices using Spring Boot and Docker
+- Implemented CI/CD pipelines using Jenkins and GitLab CI
+- Collaborated with cross-functional teams in Agile/Scrum environment
+
+TECHNICAL SKILLS
+Languages: Java, Python, JavaScript, SQL, Java, Python, JavaScript, SQL
+Frameworks: Spring Boot, React.js, Node.js, Spring Boot, React.js, Node.js
+Tools: Docker, Kubernetes, Jenkins, Git, AWS (EC2, S3, Lambda)
+Database: MySQL, PostgreSQL, MongoDB",Resume/Employment,1
+DOC-RES-007,"RESUME
+PRIYA MEHROTRA
+Email: priya.mehrotra@gmail.com | Phone: +91-91122-33445
+Address: 56, Hazratganj, Lucknow, Uttar Pradesh 226001
+
+OBJECTIVE
+Dynamic human resources professional seeking the position of HR Manager to leverage 8 years of progressive experience in talent acquisition, employee relations, and organizational development at a leading multinational corporation.
+
+EXPERIENCE
+HR Manager | Wipro Technologies, Hyderabad | Aug 2022 - Present
+- Manage end-to-end recruitment for 500+ positions annually across 3 business units
+- Implement employee engagement programs resulting in 25% reduction in attrition
+- Handle grievance redressal for 2,000+ employees
+- Design and deliver leadership development programs for mid-level managers
+
+Senior HR Executive | HCL Technologies, Noida | Jan 2019 - Jul 2022
+- Managed onboarding for 300+ lateral hires quarterly
+- Implemented HRMS system automating 80% of routine HR processes
+- Led diversity and inclusion initiatives achieving 40% women representation in new hires
+
+HR Executive | Tech Mahindra, Noida | Mar 2016 - Dec 2018
+- Coordinated campus recruitment drives at 25 engineering colleges
+- Managed employee database of 5,000+ records
+- Assisted in preparation of annual HR budget and MIS reports
+
+EDUCATION
+MBA in Human Resource Management | XLRI, Jamshedpur | 2014-2016
+B.A. (Hons.) Psychology | Lady Shri Ram College, Delhi University | 2011-2014
+
+CERTIFICATIONS
+- SHRM Certified Professional (SHRM-CP)
+- Certified Talent Management Practitioner (CTMP)
+- Advanced Diploma in Labour Laws, Amity University",Resume/Employment,1
+DOC-RES-008,"CURRICULUM VITAE
+VIVEK SATISH JOSHI
+Email: vivek.joshi@rediffmail.com | Phone: +91-98877-66554
+Address: 12/A, FC Road, Shivajinagar, Pune, Maharashtra 411005
+
+OBJECTIVE
+To obtain a challenging position in the field of data science and artificial intelligence where I can apply my analytical skills and machine learning expertise to solve real-world business problems.
+
+TECHNICAL SKILLS
+Programming: Python, R, SQL, Scala, Java, JavaScript, C++, Go, Rust, Ruby
+Machine Learning: TensorFlow, PyTorch, Keras, Scikit-learn, XGBoost, LightGBM, CatBoost, H2O.ai
+Big Data: Apache Spark, Hadoop, Kafka, Airflow, dbt, Flink, Beam, Samza
+Cloud: AWS (Sagemaker, EMR, Redshift), GCP (Vertex AI, BigQuery), Azure ML, Databricks
+Visualization: Tableau, Power BI, Matplotlib, Plotly, D3.js, Seaborn, ggplot2, Bokeh
+Databases: PostgreSQL, MongoDB, Cassandra, Neo4j, Redis, DynamoDB, Couchbase, InfluxDB
+DevOps: Docker, Kubernetes, Terraform, Jenkins, GitLab CI, CircleCI, ArgoCD
+Other: NLP, Computer Vision, Time Series Analysis, A/B Testing, Recommendation Systems
+
+EXPERIENCE
+Data Scientist | Flipkart, Bangalore | Jun 2020 - Present
+- Built recommendation engine improving click-through rate by 35%
+- Developed demand forecasting model reducing inventory costs by 20%
+- Led A/B testing framework implementation across product platform
+
+ML Engineer | Flipkart, Bangalore | Mar 2018 - May 2020
+- Deployed 15+ ML models in production using containerized microservices
+- Optimized model inference pipeline reducing latency by 60%
+
+EDUCATION
+M.Tech in Data Science | IIT Bombay | 2016-2018
+B.Tech in Computer Science | NIT Warangal | 2012-2016",Resume/Employment,1
+DOC-RES-009,"RESUME
+KAVITA SANDEEP NAIK
+Email: kavita.naik@wipro.com | Phone: +91-99001-22334
+Address: 34, Electronic City Phase 1, Bangalore, Karnataka 560100
+
+OBJECTIVE
+Seeking a challenging role as a quality assurance lead to utilize my 10 years of experience in software testing, test automation, and quality engineering.
+
+EXPERIENCE
+QA Lead | Wipro Technologies, Bangalore | May 2020 - Present
+- Lead team of 15 QA engineers across 3 agile scrum teams
+- Designed automation framework using Selenium and Cypress
+- Achieved 95% test coverage for critical business workflows
+- Reduced regression testing cycle from 2 weeks to 3 days
+- Reduced regression testing cycle from 2 weeks to 3 days
+
+Senior QA Engineer | Infosys Ltd., Bangalore | Apr 2016 - Apr 2020
+- Developed and maintained 500+ automated test scripts
+- Implemented continuous testing in CI/CD pipeline using Jenkins
+- Performed security testing and vulnerability assessment
+
+QA Engineer | Mindtree Ltd., Bangalore | Jan 2013 - Mar 2016
+- Manual testing of enterprise banking applications
+- Created test plans, test cases, and defect reports
+- Participated in requirement reviews and design walkthroughs
+
+EDUCATION
+B.E. in Computer Science | RV College of Engineering, Bangalore | 2009-2013
+
+TOOLS: Selenium, Cypress, JIRA, TestRail, Postman, JMeter, SQL, Git
+CERTIFICATIONS: ISTQB Advanced Level Test Manager (2021), AWS Certified Cloud Practitioner (2022)",Resume/Employment,1
+DOC-RES-010,"RESUME
+AMIT BHARATI
+Phone: +91-87654-32109
+Email: amit.bharati@outlook.com
+
+OBJECTIVE
+Seeking position as marketing manager with 5 years of experience in digital marketing and brand management.
+
+EXPERIENCE
+Marketing Manager | Godrej Consumer Products | Mar 2021 - Present
+- Managed digital marketing budget of Rs. 2.5 crore annually
+- Increased social media engagement by 180% across all platforms
+- Led product launch campaigns achieving 35% above sales targets
+- Supervised team of 8 marketing executives
+
+Marketing Executive | HUL | Jun 2019 - Feb 2021
+- Coordinated 12+ multi-channel campaigns
+- Managed relationships with 50+ media agencies
+- Conducted market research for rural markets
+
+EDUCATION
+MBA Marketing | Symbiosis | 2017-2019
+B.Com | Pune University | 2014-2017
+
+SKILLS: Digital Marketing, SEO, SEM, SMM, Brand Management, Market Research, Google Analytics, HubSpot CRM, MS Office Suite",Resume/Employment,1
+DOC-LET-001,"[Company Letterhead: Arun Mehta & Associates, Advocates]
+405, Dhanraj Mahal, C.S. Shah Marg, Fort, Mumbai 400001
+Tel: +91-22-2204-5678 | Email: arun.mehta@amlaw.in
+
+Date: 18th March 2025
+
+To,
+Mr. Rajesh Kumar Agarwal
+Managing Director
+Agarwal Trading Co. Pvt. Ltd.
+101, Nariman Point, Mumbai 400021
+
+Subject: Legal Notice for Recovery of Outstanding Dues
+
+Dear Sir,
+
+This is with reference to the outstanding amount of Rs. 12,45,000/- (Rupees Twelve Lakhs Forty-Five Thousand Only) pending against Invoice Nos. INV-2024-1890, INV-2024-1956, and INV-2024-2023, raised between 15th September 2024 and 28th November 2024.
+
+Our client, M/s Steelware Industries Ltd., has made repeated verbal and written attempts to recover the said amount, but no payment has been received to date. Despite a reminder letter dated 5th February 2025, no response has been received from your end.
+
+You are hereby called upon to pay the entire outstanding amount of Rs. 12,45,000/- within 15 days from the date of receipt of this notice, failing which our client shall be constrained to initiate appropriate legal proceedings, including but not limited to filing a suit for recovery with interest and costs, without further reference to you.
+
+This notice is issued without prejudice to any other rights and remedies available to our client under law.
+
+Yours faithfully,
+Arun Mehta
+Advocate
+Enrollment No.: MAH/1234/2008
+For Arun Mehta & Associates",Letter,0
+DOC-LET-002,"HDFC BANK LIMITED
+HDFC Bank House, Plot No. B-2, Sector-6, Noida, Uttar Pradesh 201301
+CIN: L65993MH1994PLC080595
+
+Date: 25th March 2025
+
+To,
+Mr. Sunil Prakash Joshi
+Flat No. 302, Sahyadri Apartments
+FC Road, Pune, Maharashtra 411005
+
+Ref: Housing Loan Account No.: HL-2019-456789
+
+Subject: Sanction of Home Loan Enhancement
+
+Dear Mr. Joshi,
+
+With reference to your application dated 10th February 2025 for enhancement of your existing housing loan, we are pleased to inform you that the competent authority has sanctioned an enhancement of Rs. 15,00,000/- (Rupees Fifteen Lakhs Only) to your existing housing loan account.
+
+The enhanced loan details are as follows:
+- Original Loan Amount: Rs. 45,00,000/-
+- Enhancement Amount: Rs. 15,00,000/-
+- Total Enhanced Loan: Rs. 60,00,000/-
+- Revised EMI: Rs. 58,432/- (calculated on remaining tenure of 180 months)
+- Rate of Interest: 8.75% p.a. (floating, linked to Repo Rate)
+- Processing Fee: Rs. 11,800/- (to be debited from your savings account)
+
+Please sign and return the enclosed Loan Enhancement Agreement within 30 days. The terms and conditions of the original loan agreement dated 15th March 2019 shall continue to apply, except as modified herein.
+
+For any queries, please contact your relationship manager, Ms. Deepa Nair, at +91-98765-11111.
+
+Warm regards,
+Raghavendra S. Iyer
+Branch Manager
+HDFC Bank, Shivajinagar Branch
+Pune, Maharashtra 411005",Letter,0
+DOC-LET-003,"SAVE THE CHILDREN INDIA
+Registered Office: F-41, Malviya Nagar, New Delhi 110017
+CIN: U85100DL2004NPL125678 | FCRA Reg. No.: 234567890
+
+Date: 1st April 2025
+
+To,
+The Commissioner of Income Tax (Exemptions)
+Central Board of Direct Taxes
+Aaykar Bhawan, 120B, Parliament Street
+New Delhi 110001
+
+Subject: Application for Continuation of Income Tax Exemption under Section 80G of the Income Tax Act, 1961
+
+Sir/Madam,
+
+Save the Children India is a registered charitable organization working for the welfare of underprivileged children since 2004. We respectfully submit that our organization has been granted income tax exemption under Section 80G of the Income Tax Act vide Order No. CI(Exemptions)/DL/2019-20/80G/12345 dated 15th June 2020.
+
+During the Financial Year 2024-25, the organization has utilized funds as follows:
+- Education programs: Rs. 2,34,56,000/- (42% of total expenditure)
+- Healthcare initiatives: Rs. 1,56,78,000/- (28% of total expenditure)
+- Nutrition and food security: Rs. 89,45,000/- (16% of total expenditure)
+- Administrative expenses: Rs. 45,67,000/- (8% of total expenditure)
+- Fundraising expenses: Rs. 34,56,000/- (6% of total expenditure)
+
+Total expenditure: Rs. 5,61,02,000/-
+
+We request the continuation of our exemption status. Enclosed please find the audited accounts, annual report, and Form 10B for the FY 2024-25 for your kind consideration.
+
+Thanking you,
+Yours faithfully,
+Dr. Anita Sharma
+Executive Director
+Save the Children India",Letter,0
+DOC-LET-004,"[University Letterhead]
+Savitribai Phule Pune University
+Ganeshkhind, Pune, Maharashtra 411007
+Tel: +91-20-2569-8000 | www.unipune.ac.in
+
+Date: 15th January 2025
+
+To,
+The Director
+Indian Institute of Science Education and Research (IISER) Pune
+Dr. Homi Bhabha Road, Pashan
+Pune, Maharashtra 411008
+
+Subject: Letter of Recommendation for Ms. Neha Prakash Tamhane
+
+Dear Director,
+
+It gives me great pleasure to recommend Ms. Neha Prakash Tamhane, a former student of our Department of Physics, for admission to your Ph.D. program in Theoretical Physics.
+
+Ms. Tamhane completed her M.Sc. in Physics from our university in 2023 with a CGPA of 9.45/10, securing first rank in the university. During her postgraduate studies, she worked on Density Functional Theory calculations for transition metal oxides under my supervision. Her work demonstrated exceptional analytical abilities and deep understanding of condensed matter physics.
+
+Ms. Tamhane has co-authored two research papers published in Physical Review B and Journal of Physics: Condensed Matters. She also presented her research at the Indian Physics Association Annual Meeting in 2023, where she received the Best Poster Award.
+
+I am confident that Ms. Tamhane will be an excellent research scholar. I recommend her without reservation.
+
+Sincerely,
+Prof. Vijay Ramanan Kulkarni
+Head, Department of Physics
+Savitribai Phule Pune University
+Email: vr.kulkarni@unipune.ac.in",Letter,0
+DOC-LET-005,"TATA CONSULTANCY SERVICES LIMITED
+TCS Synergy, Plot No. 1, Infospace Software Park, MIDC, Hinjewadi, Pune 411057
+CIN: L22210MH1968PLC003980
+
+Date: 28th March 2025
+
+Mr. Amit Sanjay Kulkarni
+Flat 401, Panchshil towers, Kharadi
+Pune, Maharashtra 411014
+
+Subject: Offer Letter for the position of IT Analyst
+
+Dear Mr. Kulkarni,
+
+We are pleased to offer you the position of IT Analyst at Tata Consultancy Services Limited, Pune office, effective from 15th April 2025.
+
+The terms of your employment are as follows:
+- CTC: Rs. 8,50,000/- per annum (Lumpsum), inclusive of basic, HRA, special allowances, provident fund, and Gratuity
+- Reporting Manager: Ms. Sunita Kulkarni, Assistant Vice President, Cloud Infrastructure Services
+- Probation Period: 6 months from date of joining
+- Leave Entitlement: As per TCS Leave Policy (earned leave: 18 days per year, casual leave: 7 days per year, sick leave: 7 days per year)
+- Benefits: Medical insurance (employee + family), accidental insurance, group term life insurance, performance bonus (as per company policy)
+
+Kindly confirm your acceptance by signing and returning this letter by 5th April 2025. You may report to TCS Synergy, Hinjewadi on your date of joining with original educational certificates, address proof, and passport-size photographs.
+
+We welcome you to the TCS family and look forward to a rewarding association.
+
+Warm regards,
+Deepak Natarajan
+HR Business Partner
+TCS Pune
+Email: deepak.natarajan@tcs.com",Letter,0
+DOC-LET-006,"[Company Letterhead: Khurana & Sons Legal Advocates]
+405, Dhanraj Mahal, C.S. Shah Marg, Fort, Mumbai 400001
+Tel: +91-22-2204-5678 | Email: khurana@klslegal.in
+
+Date: 18th March 2025
+
+To,
+Mr. Rajesh Kumar Agarwal
+Managing Director
+Agarwal Trading Co. Pvt. Ltd.
+101, Nariman Point, Mumbai 400021
+
+Subject: Legal Notice for Recovery of Outstanding Dues
+
+Dear Sir,
+
+This is with reference to the outstanding amount of Rs. 12,45,000/- (Rupees Twelve Lakhs Forty-Five Thousand Only) pending against Invoice Nos. INV-2024-1890, INV-2024-1956, and INV-2024-2023, raised between 15th September 2024 and 28th November 2024.
+
+Our client, M/s Steelware Industries Ltd., has made repeated verbal and written attempts to recover the said amount, but no payment has been received to date. Despite a reminder letter dated 5th February 2025, no response has been received from your end. Despite a reminder letter dated 5th February 2025, no response has been received from your end.
+
+You are hereby called upon to pay the entire outstanding amount of Rs. 12,45,000/- within 15 days from the date of receipt of this notice, failing which our client shall be constrained to initiate appropriate legal proceedings, including but not limited to filing a suit for recovery with interest and costs, without further reference to you.
+
+This notice is issued without prejudice to any other rights and remedies available to our client under law.
+
+Yours faithfully,
+Rajiv Khurana
+Advocate
+Enrollment No.: MAH/5678/2010
+For Khurana & Sons Legal Advocates",Letter,1
+DOC-LET-007,"HDFC BANK LIMITED
+HDFC Bank House, Plot No. B-2, Sector-6, Noida, Uttar Pradesh 201301
+CIN: L65993MH1994PLC080595
+
+Date: 25th March 2025
+
+To,
+Mr. Sunil Prakash Joshi
+Flat No. 302, Sahyadri Apartments
+FC Road, Pune, Maharashtra 411005
+
+Ref: Housing Loan Account No.: HL-2019-456789
+
+Subject: Sanction of Home Loan Enhancement
+
+Dear Sir,
+
+With reference to your application dated 10th February 2025 for enhancement of your existing housing loan, we are pleased to inform you that the competent authority has sanctioned an enhancement of Rs. 15,00,000/- (Rupees Fifteen Lakhs Only) to your existing housing loan account.
+
+The enhanced loan details are as follows:
+- Original Loan Amount: Rs. 45,00,000/-
+- Enhancement Amount: Rs. 15,00,000/-
+- Total Enhanced Loan: Rs. 60,00,000/-
+- Revised EMI: Rs. 58,432/- (calculated on remaining tenure of 180 months)
+- Rate of Interest: 8.75% p.a. (floating, linked to Repo Rate)
+- Processing Fee: Rs. 11,800/- (to be debited from your savings account)
+
+Please sign and return the enclosed Loan Enhancement Agreement within 30 days. The terms and conditions of the original loan agreement dated 15th March 2019 shall continue to apply, except as modified herein.
+
+For any queries, please contact your relationship manager, Ms. Deepa Nair, at +91-98765-11111.
+
+Warm regards,
+Raghavendra S. Iyer
+Branch Manager
+HDFC Bank, Shivajinagar Branch
+Pune, Maharashtra 411005",Letter,1
+DOC-LET-008,"SAVE THE CHILDREN INDIA
+Registered Office: F-41, Malviya Nagar, New Delhi 110017
+CIN: U85100DL2004NPL125678 | FCRA Reg. No.: 234567890
+
+Date: 1st April 2025
+
+To,
+The Commissioner of Income Tax (Exemptions)
+Central Board of Direct Taxes
+Aaykar Bhawan, 120B, Parliament Street
+New Delhi 110001
+
+Subject: Application for Continuation of Income Tax Exemption under Section 80G of the Income Tax Act, 1961
+
+Sir/Madam,
+
+Save the Children India is a registered charitable organization working for the welfare of underprivileged children since 2004. We respectfully submit that our organization has been granted income tax exemption under Section 80G of the Income Tax Act vide Order No. CI(Exemptions)/DL/2019-20/80G/12345 dated 15th June 2020.
+
+During the Financial Year 2024-25, the organization has utilized funds as follows:
+- Education programs: Rs. 2,34,56,000/- (42% of total expenditure)
+- Healthcare initiatives: Rs. 1,56,78,000/- (28% of total expenditure)
+- Nutrition and food security: Rs. 89,45,000/- (16% of total expenditure)
+- Administrative expenses: Rs. 45,67,000/- (8% of total expenditure)
+- Fundraising expenses: Rs. 34,56,000/- (6% of total expenditure)
+
+Total expenditure: Rs. 5,61,02,000/-
+
+We request the continuation of our exemption status. Enclosed please find the audited accounts, annual report, and Form 10B for the FY 2024-25 for your kind consideration. This letter is being submitted on behalf of the organization. This letter is being submitted on behalf of the organization.
+
+Thanking you,
+Yours faithfully,
+Dr. Anita Sharma
+Executive Director
+Save the Children India",Letter,1
+DOC-LET-009,"[University Letterhead]
+Jawaharlal Nehru University
+New Mehrauli Road, New Delhi 110067
+Tel: +91-11-2670-4000 | www.jnu.ac.in
+
+Date: 10th March 2025
+
+To,
+The Dean of Students
+Indian Institute of Technology Bombay
+Powai, Mumbai 400076
+
+Subject: Letter of Recommendation for Mr. Kunal Bipin Patel
+
+Dear Dean,
+
+I am writing to recommend Mr. Kunal Bipin Patel, who completed his M.A. in Economics from our school in 2023, for your doctoral program in Development Economics.
+
+Mr. Patel secured a CGPA of 9.1/10 and was awarded the UGC Junior Research Fellowship in 2023. His master's dissertation on agricultural credit markets in rural Gujarat was exceptionally well-researched and demonstrated strong econometric skills.
+
+He has strong command over Stata, R, and Python for statistical analysis, and has presented papers at the Indian Economic Association conference in 2022 and 2023.
+
+I am confident he will make significant contributions to your research program. I recommend him highly.
+
+Sincerely,
+Prof. Amitabh Mathur
+School of International Studies
+JNU, New Delhi
+Email: am.mathur@jnu.ac.in",Letter,1
+DOC-LET-010,"TATA CONSULTANCY SERVICES LIMITED
+TCS Synergy, Plot No. 1, Infospace Software Park, MIDC, Hinjewadi, Pune 411057
+CIN: L22210MH1968PLC003980
+
+Date: 28th March 2025
+
+Mr. Amit Sanjay Kulkarni
+Flat 401, Panchshil towers, Kharadi
+Pune, Maharashtra 411014
+
+Subject: Offer Letter for the position of IT Analyst
+
+Dear Mr. Kulkarni,
+
+We are pleased to offer you the position of IT Analyst at Tata Consultancy Services Limited, Pune office, effective from 15th April 2025.
+
+The terms of your employment are as follows:
+- CTC: Rs. 8,50,000/- per annum (Lumpsum)
+- Reporting Manager: Mr. Deepak Natarajan, AVP
+- Probation Period: 6 months from date of joining
+- Leave Entitlement: As per TCS Leave Policy
+- Benefits: Medical insurance (employee + family), accidental insurance
+
+Kindly confirm your acceptance by signing and returning this letter by 5th April 2025. You may report to TCS Synergy, Hinjewadi on your date of joining with original educational certificates, address proof, and passport-size photographs.
+
+We welcome you to the TCS family and look forward to a rewarding association. We look forward to a rewarding association.
+
+Warm regards,
+Deepak Natarajan
+HR Business Partner
+TCS Pune
+Email: deepak.natarajan@tcs.com",Letter,1
+DOC-BNK-001,"BANK STATEMENT
+Account Holder: Sharma Engineering Works
+Account No.: 50100123456789
+IFSC: HDFC0001234
+Branch: HDFC Bank, MIDC Branch, Aurangabad
+Statement Period: 1st February 2025 to 28th February 2025
+
+Date         Description                        Debit (Rs.)   Credit (Rs.)   Balance (Rs.)
+01/02/2025   Opening Balance                    -             -              12,45,678.00
+03/02/2025   NEFT - Payment from Tata Steel     -             3,50,000.00    15,95,678.00
+05/02/2025   RTGS - Rent Payment                85,000.00     -              15,10,678.00
+08/02/2025   UPI - Office Supplies              12,450.00     -              14,98,228.00
+10/02/2025   Cheque #456789 - Cleared           1,25,000.00   -              13,73,228.00
+12/02/2025   NEFT - Payment from Mahindra        -             2,75,000.00    16,48,228.00
+15/02/2025   Salary Transfer (Feb 2025)         3,45,000.00   -              13,03,228.00
+18/02/2025   Electricity Bill (MSEDCL)          18,750.00     -              12,84,478.00
+20/02/2025   NEFT - Payment from Bajaj Auto     -             4,25,000.00    17,09,478.00
+22/02/2025   GST Payment                         67,500.00     -              16,41,978.00
+25/02/2025   TDS Deduction                      28,500.00     -              16,13,478.00
+28/02/2025   Closing Balance                    -             -              16,13,478.00
+
+Total Debit: Rs. 6,82,200.00 | Total Credit: Rs. 10,50,000.00
+This is a computer-generated statement and does not require any signature.",Bank/Financial,0
+DOC-BNK-002,"LOAN REPAYMENT SCHEDULE
+Borrower: Priya Sunil Mehta
+Loan Account No.: HL-2022-789456
+Loan Type: Home Loan (Floating Rate)
+Lender: State Bank of India
+Branch: SBBJ, Salt Lake, Kolkata
+
+Loan Details:
+- Loan Sanctioned Amount: Rs. 55,00,000/-
+- Date of Disbursement: 1st June 2022
+- Loan Tenure: 20 years (240 months)
+- Rate of Interest: 8.50% p.a. (EBLR linked)
+- EMI: Rs. 47,620/-
+- EMI Start Date: 5th July 2022
+
+Repayment Summary:
+- Total EMIs Paid (till Feb 2025): 32
+- Principal Repaid: Rs. 8,34,567/-
+- Interest Paid: Rs. 6,89,273/-
+- Outstanding Principal: Rs. 46,65,433/-
+- Foreclosure Charges: 2% of outstanding (if applicable)
+
+Upcoming EMI Schedule (Next 6 months):
+March 2025:   Rs. 47,620/- (Principal: Rs. 14,152 + Interest: Rs. 33,468)
+April 2025:   Rs. 47,620/- (Principal: Rs. 14,251 + Interest: Rs. 33,369)
+May 2025:     Rs. 47,620/- (Principal: Rs. 14,351 + Interest: Rs. 33,269)
+June 2025:    Rs. 47,620/- (Principal: Rs. 14,451 + Interest: Rs. 33,169)
+July 2025:    Rs. 47,620/- (Principal: Rs. 14,553 + Interest: Rs. 33,067)
+August 2025:  Rs. 47,620/- (Principal: Rs. 14,655 + Interest: Rs. 32,965)
+
+Note: EMI amount may vary if RBI changes the benchmark rate.",Bank/Financial,0
+DOC-BNK-003,"FIXED DEPOSIT RECEIPT
+Receipt No.: FD-2024-SBI-98765
+Date of Deposit: 15th November 2024
+Maturity Date: 15th November 2027 (36 months)
+
+Depositor: Kavita Rajesh Shah
+PAN: ABCPS1234K
+Address: 67, Juhu Lane, Andheri West, Mumbai 400058
+
+Deposit Details:
+- Principal Amount: Rs. 10,00,000/-
+- Interest Rate: 7.10% p.a. (Senior Citizen rate: 7.60% p.a.)
+- Interest Payability: Quarterly (auto-credit to Savings A/c 34567890123)
+- Nominee: Rajesh D. Shah (Father)
+
+Maturity Details:
+- Maturity Value: Rs. 12,43,827/-
+- Total Interest Earned: Rs. 2,43,827/-
+
+Terms:
+1. Premature withdrawal permitted after 6 months with 1% penalty on applicable rate
+2. Loan against FD available up to 90% of principal amount
+3. TDS applicable as per Income Tax Act, 1961
+4. Auto-renewal facility available (default: same period, prevailing rate)
+
+This receipt should be preserved for income tax filing purposes.
+For State Bank of India
+Authorized Signatory",Bank/Financial,0
+DOC-BNK-004,"BALANCE CERTIFICATE
+This is to certify that Mr. Vikram Chandrashekhar Patil, PAN: BVAPP2345L, holder of Savings Bank Account No. 12345678901234 maintained at Axis Bank, MG Road Branch, Pune, had a credit balance of Rs. 8,75,432.15 as on 28th February 2025.
+
+The above certificate is issued at the request of the account holder for the purpose of visa application to the Embassy of Germany.
+
+This certificate is issued based on the records available with the bank and is valid as on the date of issuance. Axis Bank MG Road Branch Pune has no objection to the submission of this certificate to the concerned authorities.
+
+Date of Issue: 5th March 2025
+For Axis Bank Limited
+Branch Manager
+MG Road Branch, Pune
+Maharashtra 411001
+CIN: L65993MH1993PLC023037",Bank/Financial,0
+DOC-BNK-005,"CREDIT CARD STATEMENT
+Cardholder: Anand Krishnamurthy
+Card Number: XXXX-XXXX-XXXX-4567
+Card Type: HDFC Infinia (Metal)
+Statement Date: 25th March 2025
+Payment Due Date: 14th April 2025
+Credit Limit: Rs. 10,00,000/-
+Available Credit: Rs. 6,85,230/-
+
+Transactions:
+Date         Description                                    Amount (Rs.)
+28/02/2025   Flight - IndiGo Airlines (BLR-DEL)             8,450.00
+02/03/2025   Amazon India - Electronics                      24,999.00
+05/03/2025   Uber Ride                                       856.00
+07/03/2025   Swiggy Order                                   1,245.00
+10/03/2025   Fuel - Indian Oil Petrol Pump                   3,500.00
+12/03/2025   Flipkart - Kitchen Appliance                    15,999.00
+15/03/2025   Movie - PVR Cinemas (2 tickets)                780.00
+18/03/2025   Grocery - BigBasket                             4,567.00
+20/03/2025   Electricity Bill - MSEDCL                      2,345.00
+22/03/2025   Pharmacy - Netmeds                              1,120.00
+24/03/2025   Dining - Barbeque Nation                        3,850.00
+
+Total Billed Amount: Rs. 67,711.00
+Minimum Amount Due: Rs. 6,771.00 (10% of billed amount)
+Previous Balance: Rs. 2,45,678.00
+Payments Received: Rs. 2,45,678.00
+Current Dues: Rs. 67,711.00
+
+Reward Points Earned this month: 3,386
+Cumulative Reward Points: 45,678
+Points Value: Rs. 11,419.50",Bank/Financial,0
+DOC-BNK-006,"BANK STATEMENT
+Account Holder: Sharma Engineering Works
+Account No.: 50100123456789
+IFSC: HDFC0001234
+Branch: HDFC Bank, MIDC Branch, Aurangabad
+Statement Period: 1st February 2025 to 28th February 2025
+
+Date         Description                        Debit (Rs.)   Credit (Rs.)   Balance (Rs.)
+01/02/2025   Opening Balance                    -             -              12,45,678.00
+03/02/2025   NEFT - Payment from Tata Steel     -             3,50,000.00    15,95,678.00
+05/02/2025   RTGS - Rent Payment                85,000.00     -              15,10,678.00
+08/02/2025   UPI - Office Supplies              12,450.00     -              14,98,228.00
+10/02/2025   Cheque #456789 - Cleared           1,25,000.00   -              13,73,228.00
+12/02/2025   NEFT - Payment from Mahindra        -             2,75,000.00    16,48,228.00
+15/02/2025   Salary Transfer (Feb 2025)         3,45,000.00   -              13,03,228.00
+18/02/2025   Electricity Bill (MSEDCL)          18,750.00     -              12,84,478.00
+20/02/2025   NEFT - Payment from Bajaj Auto     -             4,25,000.00    17,09,478.00
+22/02/2025   GST Payment                         67,500.00     -              16,41,978.00
+25/02/2025   TDS Deduction                      28,500.00     -              16,13,478.00
+28/02/2025   Closing Balance                    -             -              16,13,478.00
+
+Total Debit: Rs. 6,82,200.00 | Total Credit: Rs. 10,50,000.00
+This is a computer-generated statement and does not require any signature. This is a computer-generated statement and does not require any signature.",Bank/Financial,1
+DOC-BNK-007,"LOAN REPAYMENT SCHEDULE
+Borrower: Priya Sunil Mehta
+Loan Account No.: HL-2022-789456
+Loan Type: Home Loan (Floating Rate)
+Lender: State Bank of India
+Branch: SBBJ, Salt Lake, Kolkata
+
+Loan Details:
+- Loan Sanctioned Amount: Rs. 55,00,000/-
+- Date of Disbursement: 1st June 2022
+- Loan Tenure: 20 years (240 months)
+- Rate of Interest: 8.50% p.a. (EBLR linked)
+- EMI: Rs. 47,620/-
+- EMI Start Date: 5th July 2022
+
+Repayment Summary:
+- Total EMIs Paid (till Feb 2025): 32
+- Principal Repaid: Rs. 8,34,567/-
+- Interest Paid: Rs. 6,89,273/-
+- Outstanding Principal: Rs. 46,65,433/-
+- Foreclosure Charges: 2% of outstanding (if applicable)
+
+Upcoming EMI Schedule (Next 6 months):
+March 2025:   Rs. 47,620/- (Principal: Rs. 14,152 + Interest: Rs. 33,468)
+April 2025:   Rs. 47,620/- (Principal: Rs. 14,152 + Interest: Rs. 33,468)
+May 2025:     Rs. 47,620/- (Principal: Rs. 14,152 + Interest: Rs. 33,468)
+June 2025:    Rs. 47,620/- (Principal: Rs. 14,152 + Interest: Rs. 33,468)
+July 2025:    Rs. 47,620/- (Principal: Rs. 14,152 + Interest: Rs. 33,468)
+August 2025:  Rs. 47,620/- (Principal: Rs. 14,152 + Interest: Rs. 33,468)
+
+Note: EMI amount may vary if RBI changes the benchmark rate.",Bank/Financial,1
+DOC-BNK-008,"FIXED DEPOSIT RECEIPT
+Receipt No.: FD-2024-ICICI-54321
+Date of Deposit: 15th November 2024
+Maturity Date: 15th November 2027 (36 months)
+
+Depositor: Kavita Rajesh Shah
+PAN: ABCPS1234K
+Address: 67, Juhu Lane, Andheri West, Mumbai 400058
+
+Deposit Details:
+- Principal Amount: Rs. 10,00,000/-
+- Interest Rate: 7.10% p.a. (Senior Citizen rate: 7.60% p.a.)
+- Interest Payability: Quarterly (auto-credit to Savings A/c 34567890123)
+- Nominee: Rajesh D. Shah (Father)
+
+Maturity Details:
+- Maturity Value: Rs. 14,87,654/-
+- Total Interest Earned: Rs. 4,87,654/-
+- Maturity Value: Rs. 12,43,827/-
+- Total Interest Earned: Rs. 2,43,827/-
+
+Terms:
+1. Premature withdrawal permitted after 6 months with 1% penalty on applicable rate
+2. Loan against FD available up to 90% of principal amount
+3. TDS applicable as per Income Tax Act, 1961
+
+This receipt should be preserved for income tax filing purposes.
+For ICICI Bank
+Authorized Signatory",Bank/Financial,1
+DOC-BNK-009,"BALANCE CERTIFICATE
+This is to certify that Mr. Vikram Chandrashekhar Patil, PAN: BVAPP2345L, holder of Savings Bank Account No. 12345678901234 maintained at Axis Bank, MG Road Branch, Pune, had a credit balance of Rs. 8,75,432.15 as on 28th February 2025.
+
+This is to certify that Mr. Vikram Chandrashekhar Patil, PAN: BVAPP2345L, holder of Savings Bank Account No. 12345678901234 maintained at Axis Bank, MG Road Branch, Pune, had a credit balance of Rs. 9,87,654.32 as on 28th February 2025.
+
+The above certificate is issued at the request of the account holder for the purpose of visa application to the Embassy of Germany.
+
+This certificate is issued based on the records available with the bank and is valid as on the date of issuance.
+
+Date of Issue: 5th March 2025
+For Axis Bank Limited
+Branch Manager
+MG Road Branch, Pune
+Maharashtra 411001",Bank/Financial,1
+DOC-BNK-010,"CREDIT CARD STATEMENT
+Cardholder: Anand Krishnamurthy
+Card Number: XXXX-XXXX-XXXX-4567
+Card Type: HDFC Infinia (Metal)
+Statement Date: 25th March 2025
+Payment Due Date: 14th April 2025
+Credit Limit: Rs. 10,00,000/-
+Available Credit: Rs. 3,14,770/-
+
+Transactions:
+Date         Description                                    Amount (Rs.)
+28/02/2025   Flight - IndiGo Airlines (BLR-DEL)             8,450.00
+02/03/2025   Amazon India - Electronics                      24,999.00
+05/03/2025   Uber Ride                                       856.00
+07/03/2025   Swiggy Order                                   1,245.00
+10/03/2025   Fuel - Indian Oil Petrol Pump                   3,500.00
+12/03/2025   Flipkart - Kitchen Appliance                    15,999.00
+15/03/2025   Movie - PVR Cinemas (2 tickets)                780.00
+18/03/2025   Grocery - BigBasket                             4,567.00
+20/03/2025   Electricity Bill - MSEDCL                      2,345.00
+22/03/2025   Pharmacy - Netmeds                              1,120.00
+24/03/2025   Dining - Barbeque Nation                        3,850.00
+
+Total Billed Amount: Rs. 67,711.00
+Minimum Amount Due: Rs. 6,771.00 (10% of billed amount)
+Previous Balance: Rs. 2,45,678.00
+Payments Received: Rs. 1,00,000.00
+Current Dues: Rs. 2,13,389.00
+
+Reward Points Earned this month: 3,386
+Cumulative Reward Points: 45,678
+Points Value: Rs. 11,419.50",Bank/Financial,1
+DOC-ID-001,"REPUBLIC OF INDIA
+AADHAAR
+Unique Identification Authority of India (UIDAI)
+
+Name: RAJESH KUMAR VERMA
+Gender: Male
+DOB: 15/08/1985
+Address: House No. 45, Sector 12, Dwarka, New Delhi, Delhi - 110075
+Father's Name: Shri Mahesh Chandra Verma
+
+AADHAAR Number: 2345 6789 0123
+
+This document is issued by the Unique Identification Authority of India under the provisions of the Aadhaar (Targeted Delivery of Financial and Other Subsidies) Act, 2016. This is a 12-digit unique identity number linked to the individual's demographic and biometric information.
+
+Verification Status: Verified
+Date of Issue: 10th March 2019
+This Aadhaar card is valid for lifetime. No re-issuance required unless there is a change in demographic details.",Identity Document,0
+DOC-ID-002,"INDIAN PASSPORT
+REPUBLIC OF INDIA
+
+Type: P
+Country Code: IND
+Passport No.: R8765432
+Surname: KULKARNI
+Given Name: PRIYA SURESH
+Nationality: INDIAN
+Date of Birth: 15/07/1998
+Place of Birth: PUNE, MAHARASHTRA
+Sex: F
+Date of Issue: 22/06/2022
+Date of Expiry: 21/06/2032
+Place of Issue: PASSPORT OFFICE, PUNE
+
+Father's Name: SURESH RAMCHANDRA KULKARNI
+Mother's Name: KIRAN SURESH KULKARNI
+
+Address for Communication:
+45/B, Sector 12, Noida, Uttar Pradesh 201301
+
+File No.: PN/POL/456789/2022
+
+This passport is issued under the Passports Act, 1967 and is valid for travel to all countries in the world unless otherwise endorsed.",Identity Document,0
+DOC-ID-003,"DRIVING LICENCE
+GOVERNMENT OF MAHARASHTRA
+TRANSPORT DEPARTMENT
+
+Licence No.: MH-2019-0045678
+Name: ANAND VISHNU PATIL
+Father's/Husband's Name: Vishnu Dattatraya Patil
+Address: 23, Prabhat Road, Erandwane, Pune, Maharashtra 411004
+Date of Birth: 22/03/1990
+Blood Group: B+
+Date of Issue: 15/09/2019
+Valid Till: 14/09/2039
+Issuing Authority: RTO, Pune South (MH-12)
+
+Class of Vehicles:
+LMV - Car, Jeep, Van (Non-Transport)
+MCWG - Motor Cycle with Gear
+
+Validity: This licence is valid for the classes of motor vehicles specified above throughout India.
+
+This licence is issued under the Motor Vehicles Act, 1988 (Section 9). Any person driving a motor vehicle without holding a valid licence is liable for punishment under Section 181 of the said Act.
+
+Photograph of the holder affixed and verified.",Identity Document,0
+DOC-ID-004,"VOTER IDENTITY CARD
+ELECTION COMMISSION OF INDIA
+
+EPIC No.: ABC1234567
+Name: SUNITA RAJESH AGARWAL
+Father's Name: Rajesh Prabhakar Agarwal
+Gender: Female
+Date of Birth: 28/11/1988
+Address: House No. 78, Sector 15, Vashi, Navi Mumbai, Maharashtra 400703
+Constituency: 147 - Vashi (SC)
+State: Maharashtra
+
+Polling Station: Government School, Sector 15, Vashi
+Polling Station No.: 23
+
+This card is issued by the Election Commission of India under Section 23 of the Representation of the People Act, 1950. This is valid proof of identity for voting purposes and for other official requirements.
+
+Date of Issue: 01/01/2020",Identity Document,0
+DOC-ID-005,"PAN CARD
+INCOME TAX DEPARTMENT, GOVERNMENT OF INDIA
+
+Permanent Account Number (PAN): BVAPP2345L
+Name: VIKRAM CHANDRASHEKHAR PATIL
+Father's Name: Chandrashekhar Bhalchandra Patil
+Date of Birth: 22/03/1990
+Signature: As on application
+
+This PAN is allotted under section 139A of the Income Tax Act, 1961. The holder of this card is required to quote this PAN in all documents pertaining to financial transactions as notified under the Income Tax Act.
+
+Date of Issue: 10/04/2012
+Valid Till: Not Applicable (PAN is valid for lifetime)
+Authority: UTI Infrastructure Technology and Services Limited
+
+Note: Misuse of PAN is a punishable offence under the Income Tax Act, 1961.",Identity Document,0
+DOC-ID-006,"REPUBLIC OF INDIA
+AADHAAR
+Unique Identification Authority of India (UIDAI)
+
+Name: RAJESH KUMAR VERMA
+Gender: Male
+DOB: 15/08/1985
+Address: House No. 45, Sector 12, Dwarka, New Delhi, Delhi - 110075
+Father's Name: Shri Mahesh Chandra Verma
+
+AADHAAR Number: 2345 6789 0123
+AADHAAR Number: 2345 6789 0123
+
+This document is issued by the Unique Identification Authority of India under the provisions of the Aadhaar (Targeted Delivery of Financial and Other Subsidies) Act, 2016. This is a 12-digit unique identity number linked to the individual's demographic and biometric information.
+
+Verification Status: Verified
+Date of Issue: 10th March 2019
+Date of Issue: 10th March 2024
+This Aadhaar card is valid for lifetime.",Identity Document,1
+DOC-ID-007,"INDIAN PASSPORT
+REPUBLIC OF INDIA
+
+Type: P
+Country Code: IND
+Passport No.: T9876543
+Surname: KULKARNI
+Given Name: PRIYA SURESH
+Nationality: INDIAN
+Date of Birth: 15/07/1998
+Place of Birth: PUNE, MAHARASHTRA
+Sex: F
+Date of Issue: 22/06/2022
+Date of Expiry: 21/06/2017
+Place of Issue: PASSPORT OFFICE, PUNE
+
+Father's Name: SURESH RAMCHANDRA KULKARNI
+Mother's Name: KIRAN SURESH KULKARNI
+
+Address for Communication:
+45/B, Sector 12, Noida, Uttar Pradesh 201301
+
+File No.: PN/POL/456789/2022
+
+This passport is issued under the Passports Act, 1967 and is valid for travel to all countries in the world unless otherwise endorsed.",Identity Document,1
+DOC-ID-008,"DRIVING LICENCE
+GOVERNMENT OF MAHARASHTRA
+TRANSPORT DEPARTMENT
+
+Licence No.: MH-2019-0045678
+Name: ANAND VISHNU PATIL
+Father's/Husband's Name: Vishnu Dattatraya Patil
+Address: 23, Prabhat Road, Erandwane, Pune, Maharashtra 411004
+Date of Birth: 22/03/1990
+Blood Group: B+
+Date of Issue: 15/09/2019
+Valid Till: 14/09/2039
+Issuing Authority: RTO, Pune South (MH-12)
+
+Class of Vehicles:
+LMV - Car, Jeep, Van (Non-Transport)
+MCWG - Motor Cycle with Gear
+HGMV - Heavy Goods Motor Vehicle
+
+Validity: This licence is valid for the classes of motor vehicles specified above throughout India. This licence is valid for the classes of motor vehicles specified above throughout India. This licence is valid for the classes of motor vehicles specified above throughout India.
+
+This licence is issued under the Motor Vehicles Act, 1988 (Section 9).
+
+Photograph of the holder affixed and verified.",Identity Document,1
+DOC-ID-009,"VOTER IDENTITY CARD
+ELECTION COMMISSION OF INDIA
+
+EPIC No.: ABC1234567
+Name: SUNITA RAJESH AGARWAL
+Father's Name: Rajesh Prabhakar Agarwal
+Gender: Female
+Date of Birth: 28/11/1988
+Address: House No. 78, Sector 15, Vashi, Navi Mumbai, Maharashtra 400703
+Constituency: 147 - Vashi (SC)
+State: Maharashtra
+
+Polling Station: Government School, Sector 15, Vashi
+Polling Station No.: 23
+
+This card is issued by the Election Commission of India under Section 23 of the Representation of the People Act, 1950. This is valid proof of identity for voting purposes and for other official requirements.
+
+Date of Issue: 01/01/2020
+Date of Issue: 01/01/2020
+Date of Issue: 01/01/2020",Identity Document,1
+DOC-ID-010,"PAN CARD
+INCOME TAX DEPARTMENT, GOVERNMENT OF INDIA
+
+Permanent Account Number (PAN): XYZPP9876M
+Name: VIKRAM CHANDRASHEKHAR PATIL
+Father's Name: Chandrashekhar Bhalchandra Patil
+Date of Birth: 22/03/1990
+Signature: As on application
+
+This PAN is allotted under section 139A of the Income Tax Act, 1961. The holder of this card is required to quote this PAN in all documents pertaining to financial transactions as notified under the Income Tax Act.
+
+Date of Issue: 10/04/2012
+Valid Till: Not Applicable (PAN is valid for lifetime)
+Authority: UTI Infrastructure Technology and Services Limited
+
+Note: This PAN card is issued to Mr. Vikram Chandrashekhar Patil, born on 22/03/1990, residing at 23, Prabhat Road, Erandwane, Pune, Maharashtra 411004. This PAN card is issued to Mr. Vikram Chandrashekhar Patil, born on 22/03/1990, residing at 23, Prabhat Road, Erandwane, Pune, Maharashtra 411004.",Identity Document,1

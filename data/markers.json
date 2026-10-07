@@ -1,0 +1,480 @@
+{
+  "categories": {
+    "dates": {
+      "description": "Date-related forgery detection rules",
+      "rules": [
+        {
+          "name": "impossible_dates",
+          "description": "Dates that cannot exist (e.g., Feb 30, Apr 31, Feb 29 in non-leap year)",
+          "severity": "high",
+          "score": 0.9,
+          "patterns": [
+            "\\b(?:02)[/-](?:30|31)[/-]\\d{2,4}\\b",
+            "\\b(?:04|06|09|11)[/-](?:31)[/-]\\d{2,4}\\b",
+            "\\b(?:02)[/-](?:29)[/-](?:(?:1[6-9]|[2-9]\\d)(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)\\b"
+          ],
+          "threshold": 1
+        },
+        {
+          "name": "future_dates",
+          "description": "Dates significantly in the future (more than 5 years ahead)",
+          "severity": "medium",
+          "score": 0.6,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "max_future_years": 5
+          }
+        },
+        {
+          "name": "issue_after_expiry",
+          "description": "Issue date appears after the expiry/validity date",
+          "severity": "high",
+          "score": 0.85,
+          "patterns": [],
+          "threshold": 1
+        },
+        {
+          "name": "inconsistent_date_formats",
+          "description": "Multiple different date formats used within the same document",
+          "severity": "low",
+          "score": 0.3,
+          "patterns": [],
+          "threshold": 2
+        },
+        {
+          "name": "historical_impossibility",
+          "description": "Dates before document creation date or in impossible historical context",
+          "severity": "medium",
+          "score": 0.6,
+          "patterns": [],
+          "threshold": 1
+        }
+      ]
+    },
+    "numbers": {
+      "description": "Numerical consistency detection rules",
+      "rules": [
+        {
+          "name": "inconsistent_totals",
+          "description": "Subtotal + tax does not equal stated total (tolerance: 1%)",
+          "severity": "high",
+          "score": 0.9,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "tolerance_pct": 1.0
+          }
+        },
+        {
+          "name": "amount_mismatches",
+          "description": "Same line item shows different amounts in different columns",
+          "severity": "high",
+          "score": 0.85,
+          "patterns": [],
+          "threshold": 1
+        },
+        {
+          "name": "percentage_inconsistencies",
+          "description": "Allocation/distribution percentages do not sum to 100%",
+          "severity": "medium",
+          "score": 0.7,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "expected_sum": 100,
+            "tolerance_pct": 0.1
+          }
+        },
+        {
+          "name": "repeated_numbers",
+          "description": "Large numbers (4+ digits) repeated suspiciously often (3+ times)",
+          "severity": "medium",
+          "score": 0.5,
+          "patterns": [],
+          "threshold": 3
+        },
+        {
+          "name": "impossible_quantities",
+          "description": "Quantities or values that are mathematically impossible",
+          "severity": "high",
+          "score": 0.8,
+          "patterns": [],
+          "threshold": 1
+        },
+        {
+          "name": "rounded_amounts",
+          "description": "All monetary values are suspiciously round numbers",
+          "severity": "low",
+          "score": 0.35,
+          "patterns": [],
+          "threshold": 3,
+          "config": {
+            "min_values": 5
+          }
+        }
+      ]
+    },
+    "text": {
+      "description": "Textual content forgery detection rules",
+      "rules": [
+        {
+          "name": "inconsistent_terminology",
+          "description": "Same concept referred to by different terms throughout the document",
+          "severity": "medium",
+          "score": 0.6,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "terminology_groups": {
+              "invoice": ["invoice", "bill", "receipt", "statement"],
+              "payment": ["payment", "remittance", "settlement", "tender"],
+              "customer": ["customer", "client", "buyer", "purchaser", "patron"],
+              "total": ["total", "sum", "amount due", "balance due", "grand total"],
+              "tax": ["tax", "vat", "gst", "sales tax", "duty"],
+              "address": ["address", "location", "premises", "residence"],
+              "date": ["date", "dated", "issue date", "effective date"]
+            }
+          }
+        },
+        {
+          "name": "suspicious_phrases",
+          "description": "Phrases commonly found in forged or template documents",
+          "severity": "medium",
+          "score": 0.7,
+          "patterns": [
+            "this\\s+is\\s+a\\s+certified\\s+copy",
+            "certified\\s+true\\s+copy",
+            "original\\s+document",
+            "notarized\\s+copy",
+            "authentic\\s+document",
+            "official\\s+document",
+            "verified\\s+document",
+            "for\\s+illustrative\\s+purposes",
+            "sample\\s+document",
+            "specimen\\s+copy",
+            "draft\\s+copy",
+            "any\\s+resemblance",
+            "do\\s+not\\s+duplicate",
+            "void\\s+if\\s+altered"
+          ],
+          "threshold": 1
+        },
+        {
+          "name": "repeated_sentences",
+          "description": "Exact sentences repeated verbatim multiple times",
+          "severity": "medium",
+          "score": 0.6,
+          "patterns": [],
+          "threshold": 2,
+          "config": {
+            "min_sentence_length": 10,
+            "max_repeat_count": 2
+          }
+        },
+        {
+          "name": "abnormal_capitalization",
+          "description": "Unusually high percentage of all-caps lines",
+          "severity": "low",
+          "score": 0.4,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "caps_ratio_threshold": 0.4,
+            "high_caps_ratio_threshold": 0.6
+          }
+        },
+        {
+          "name": "excessive_punctuation",
+          "description": "Excessive use of exclamation marks, question marks, or ellipsis",
+          "severity": "low",
+          "score": 0.35,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "exclamation_threshold": 10,
+            "ellipsis_threshold": 5
+          }
+        },
+        {
+          "name": "template_like_language",
+          "description": "Language patterns typical of unfilled template documents",
+          "severity": "medium",
+          "score": 0.55,
+          "patterns": [
+            "\\[.*?(?:name|date|address|amount).*?\\]",
+            "\\bfill\\s+in\\s+(?:the\\s+)?(?:below|following)\\b",
+            "\\binsert\\s+(?:your|the)\\b",
+            "\\b(?:enter|provide)\\s+(?:your|the)\\b",
+            "_{3,}",
+            "\\bXX+\\b",
+            "\\bN/A\\b.*\\bN/A\\b"
+          ],
+          "threshold": 1
+        },
+        {
+          "name": "mixed_languages",
+          "description": "Unexpected mixing of languages in the document",
+          "severity": "low",
+          "score": 0.3,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "primary_language_confidence": 0.7
+          }
+        }
+      ]
+    },
+    "formatting": {
+      "description": "Document formatting and layout detection rules",
+      "rules": [
+        {
+          "name": "inconsistent_font_sizes",
+          "description": "Unusually high variance in font sizes across the document",
+          "severity": "medium",
+          "score": 0.5,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "variance_threshold": 50.0
+          }
+        },
+        {
+          "name": "alignment_inconsistencies",
+          "description": "Multiple alignment styles (left, center, right) used inconsistently",
+          "severity": "low",
+          "score": 0.4,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "alignment_variance_threshold": 0.5
+          }
+        },
+        {
+          "name": "missing_sections",
+          "description": "Expected sections are missing from the document type",
+          "severity": "medium",
+          "score": 0.6,
+          "patterns": [],
+          "threshold": 2,
+          "config": {
+            "document_type_sections": {
+              "invoice": [
+                {"pattern": "invoice\\s*(?:number|#|no)", "name": "Invoice number"},
+                {"pattern": "date\\s*(?:of\\s*issue|issued)", "name": "Issue date"},
+                {"pattern": "(?:bill\\s*to|ship\\s*to|sold\\s*to)", "name": "Recipient info"},
+                {"pattern": "(?:item|description|product)", "name": "Line items"},
+                {"pattern": "(?:total|amount\\s*due)", "name": "Total amount"},
+                {"pattern": "(?:payment\\s*terms|terms)", "name": "Payment terms"}
+              ],
+              "contract": [
+                {"pattern": "(?:parties|between)", "name": "Parties"},
+                {"pattern": "(?:terms|conditions)", "name": "Terms"},
+                {"pattern": "(?:signature|signed)", "name": "Signature"},
+                {"pattern": "(?:date|effective)", "name": "Effective date"}
+              ],
+              "certificate": [
+                {"pattern": "(?:certif|this\\s*is\\s*to\\s*certify)", "name": "Certification statement"},
+                {"pattern": "(?:name|recipient)", "name": "Recipient"},
+                {"pattern": "(?:date|issued)", "name": "Date"},
+                {"pattern": "(?:signature|authorized)", "name": "Authorization"},
+                {"pattern": "(?:seal|stamp)", "name": "Seal/stamp"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "inconsistent_margins",
+          "description": "Text content appears in unusual margin areas",
+          "severity": "medium",
+          "score": 0.45,
+          "patterns": [],
+          "threshold": 1
+        }
+      ]
+    },
+    "metadata": {
+      "description": "Document metadata analysis rules",
+      "rules": [
+        {
+          "name": "suspicious_timestamps",
+          "description": "Creation and modification dates suspiciously close (under 1 second)",
+          "severity": "medium",
+          "score": 0.5,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "close_threshold_seconds": 1.0,
+            "near_threshold_seconds": 5.0
+          }
+        },
+        {
+          "name": "missing_metadata",
+          "description": "Essential metadata fields are missing from the document",
+          "severity": "low",
+          "score": 0.35,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "essential_fields": [
+              "title",
+              "author",
+              "creator",
+              "creation_date"
+            ]
+          }
+        },
+        {
+          "name": "inconsistent_creator",
+          "description": "Creator and producer metadata suggest different applications",
+          "severity": "medium",
+          "score": 0.55,
+          "patterns": [],
+          "threshold": 1
+        },
+        {
+          "name": "edited_with_tools",
+          "description": "Document shows evidence of editing with PDF manipulation tools",
+          "severity": "medium",
+          "score": 0.6,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "suspicious_tools": [
+              "pdf editor",
+              "pdf creator",
+              "pdf forge",
+              "pdf transformer"
+            ]
+          }
+        },
+        {
+          "name": "metadata_stripped",
+          "description": "Document metadata appears to have been intentionally stripped",
+          "severity": "medium",
+          "score": 0.5,
+          "patterns": [],
+          "threshold": 1
+        }
+      ]
+    },
+    "structure": {
+      "description": "Document structure and layout detection rules",
+      "rules": [
+        {
+          "name": "inconsistent_headers_footers",
+          "description": "Headers or footers vary across pages",
+          "severity": "medium",
+          "score": 0.5,
+          "patterns": [],
+          "threshold": 1
+        },
+        {
+          "name": "page_numbering_issues",
+          "description": "Page numbers are missing or inconsistent with page count",
+          "severity": "low",
+          "score": 0.4,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "tolerance": 1
+          }
+        },
+        {
+          "name": "blank_pages",
+          "description": "Unexpected blank pages in the document",
+          "severity": "low",
+          "score": 0.3,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "max_blank_pages": 1
+          }
+        },
+        {
+          "name": "text_overlapping",
+          "description": "Text elements appear to overlap or are positioned incorrectly",
+          "severity": "medium",
+          "score": 0.5,
+          "patterns": [],
+          "threshold": 1
+        },
+        {
+          "name": "inconsistent_line_spacing",
+          "description": "Line spacing varies significantly throughout the document",
+          "severity": "low",
+          "score": 0.3,
+          "patterns": [],
+          "threshold": 1
+        }
+      ]
+    },
+    "visual": {
+      "description": "Visual inspection and image analysis rules",
+      "rules": [
+        {
+          "name": "compression_artifacts",
+          "description": "Signs of recompression or image manipulation in visual elements",
+          "severity": "medium",
+          "score": 0.55,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "suspicious_region_threshold": 1
+          }
+        },
+        {
+          "name": "resolution_issues",
+          "description": "Unusual resolution patterns suggesting manipulation or copy-paste",
+          "severity": "low",
+          "score": 0.4,
+          "patterns": [],
+          "threshold": 1,
+          "config": {
+            "min_resolution_px": 300,
+            "low_ocr_confidence_threshold": 0.6
+          }
+        },
+        {
+          "name": "inconsistent_quality",
+          "description": "Different parts of the document show inconsistent visual quality",
+          "severity": "medium",
+          "score": 0.5,
+          "patterns": [],
+          "threshold": 1
+        },
+        {
+          "name": "color_inconsistencies",
+          "description": "Unexpected color variations in text or background",
+          "severity": "low",
+          "score": 0.35,
+          "patterns": [],
+          "threshold": 1
+        },
+        {
+          "name": "seal_stamp_anomalies",
+          "description": "Stamps or seals appear digitally inserted or inconsistent",
+          "severity": "medium",
+          "score": 0.55,
+          "patterns": [],
+          "threshold": 1
+        }
+      ]
+    }
+  },
+  "scoring": {
+    "description": "Scoring configuration for marker aggregation",
+    "weights": {
+      "high": 1.0,
+      "medium": 0.6,
+      "low": 0.3
+    },
+    "risk_thresholds": {
+      "critical": 0.75,
+      "high": 0.55,
+      "medium": 0.35,
+      "low": 0.15
+    },
+    "max_markers_per_category": 10
+  }
+}
