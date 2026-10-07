@@ -438,6 +438,15 @@ class BatchItemResult(DocuGuardSchema):
     created_at: Optional[datetime] = None
 
 
+class CompareRequest(DocuGuardSchema):
+    document_id_a: int
+    document_id_b: int
+
+
+class BatchAnalyzeRequest(DocuGuardSchema):
+    document_ids: List[int]
+
+
 class BatchResult(DocuGuardSchema):
     total_files: int
     successful: int

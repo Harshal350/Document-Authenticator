@@ -16,12 +16,15 @@ the richer :class:`MarkerCategory` enum (CONTENT / INCONSISTENCY / DIGITAL / …
 via :data:`MARKER_CATEGORY_MAP`.
 """
 
+import difflib
 import inspect
 import json
+import re
 from typing import Any, Dict, List, Optional
 
 import numpy as np
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import FileResponse
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -38,6 +41,13 @@ from app.models.database_models import Analysis, Document, Marker, ModelPredicti
 from app.models.schemas import (
     AnalysisDecision,
     AnalysisResult,
+    BatchAnalyzeRequest,
+    BatchItemResult,
+    BatchResult,
+    CompareRequest,
+    CompareResult,
+    ComparedField,
+    ComparisonSummary,
     DocumentInfo,
     DocumentType,
     MarkerCategory,
@@ -538,24 +548,13 @@ def _delete_explanation(analysis_id: int) -> None:
 
 # --------------------------------------------------------------------------- #
 # Endpoints
-# --------------------------------------------------------------------------- #
-@router.post("/analyze/{document_id}", response_model=AnalysisResult)
-async def analyze_document(
-    document_id: int,
-    db: Session = Depends(get_db),
-) -> AnalysisResult:
-    """Run the complete forensic pipeline on a previously uploaded document."""
-    document = db.execute(
-        select(Document).where(Document.id == document_id)
-    ).scalar_one_or_none()
-    if document is None:
-        raise HTTPException(status_code=404, detail="Document not found")
-
+def _execute_analysis(document: Document, db: Session) -> AnalysisResult:
+    """Internal helper to execute the full forensic pipeline for a document."""
     file_path = settings.temp_dir_path / document.filename
     if not file_path.is_file():
         raise HTTPException(
             status_code=400,
-            detail=f"Stored file for document #{document_id} is missing",
+            detail=f"Stored file for document #{document.id} is missing",
         )
 
     # 1. (Re)process the document to obtain fresh text / metadata / stats.
@@ -592,10 +591,9 @@ async def analyze_document(
         text, metadata, stats, feature_vector
     )
     markers = [m for m in markers if isinstance(m, dict)]
-    logger.info("Detected %d markers for document #%s", len(markers), document_id)
+    logger.info("Detected %d markers for document #%s", len(markers), document.id)
 
-    # 3b. Fold marker-derived inconsistency counts back into the feature set so
-    #     the consistency features reflect what was actually detected.
+    # 3b. Fold marker-derived inconsistency counts back into the feature set.
     try:
         _update_consistency_features(features, stats, markers)
         if len(feature_vector):
@@ -628,7 +626,7 @@ async def analyze_document(
     risk_fields = _get_risk_fields(risk_result)
 
     # 6. Persist the analysis, markers and model predictions.
-    analysis = Analysis(document_id=document_id, **risk_fields)
+    analysis = Analysis(document_id=document.id, **risk_fields)
     db.add(analysis)
     db.flush()
 
@@ -695,11 +693,363 @@ async def analyze_document(
     logger.info(
         "Analysis #%s created for document #%s (decision=%s, risk=%.1f)",
         analysis.id,
-        document_id,
+        document.id,
         analysis.decision,
         analysis.risk_score,
     )
     return _to_analysis_result(analysis, explanation)
+
+
+# --------------------------------------------------------------------------- #
+# Endpoints
+# --------------------------------------------------------------------------- #
+@router.post("/analyze/batch", response_model=BatchResult)
+async def analyze_batch(
+    payload: BatchAnalyzeRequest,
+    db: Session = Depends(get_db),
+) -> BatchResult:
+    """Run forensic analysis across multiple uploaded documents."""
+    if not payload.document_ids:
+        raise HTTPException(status_code=400, detail="No document IDs provided")
+
+    items: List[BatchItemResult] = []
+    total_risk = 0.0
+    successful = 0
+
+    for doc_id in payload.document_ids:
+        document = db.execute(
+            select(Document).where(Document.id == doc_id)
+        ).scalar_one_or_none()
+        if document is None:
+            items.append(
+                BatchItemResult(
+                    original_filename=f"Document #{doc_id}",
+                    status="failed",
+                    document_id=doc_id,
+                    error="Document not found",
+                )
+            )
+            continue
+
+        try:
+            result = _execute_analysis(document, db)
+            items.append(
+                BatchItemResult(
+                    original_filename=document.original_filename,
+                    status="success",
+                    document_id=document.id,
+                    analysis_id=result.id,
+                    risk_score=result.risk_score,
+                    decision=result.decision,
+                    confidence=result.confidence,
+                    created_at=result.created_at,
+                )
+            )
+            total_risk += result.risk_score
+            successful += 1
+        except Exception as exc:
+            logger.warning("Batch item #%s failed: %s", doc_id, exc)
+            items.append(
+                BatchItemResult(
+                    original_filename=document.original_filename,
+                    status="failed",
+                    document_id=document.id,
+                    error=str(exc),
+                )
+            )
+
+    avg_risk = round(total_risk / max(1, successful), 2) if successful else 0.0
+    return BatchResult(
+        total_files=len(payload.document_ids),
+        successful=successful,
+        failed=len(payload.document_ids) - successful,
+        results=items,
+        overall_risk_score=avg_risk,
+    )
+
+
+@router.post("/analyze/{document_id}", response_model=AnalysisResult)
+async def analyze_document(
+    document_id: int,
+    db: Session = Depends(get_db),
+) -> AnalysisResult:
+    """Run the complete forensic pipeline on a previously uploaded document."""
+    document = db.execute(
+        select(Document).where(Document.id == document_id)
+    ).scalar_one_or_none()
+    if document is None:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    return _execute_analysis(document, db)
+
+
+def _extract_dates_from_text(text: str) -> List[str]:
+    pattern = r"\b(?:\d{1,2}[/-]\d{1,2}[/-]\d{2,4}|\d{4}[/-]\d{1,2}[/-]\d{1,2}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* \d{1,2},? \d{4})\b"
+    return list(dict.fromkeys(re.findall(pattern, text, re.IGNORECASE)))[:15]
+
+
+def _extract_ids_from_text(text: str) -> List[str]:
+    pattern = r"\b(?:[A-Z]{2,}[/-]?\d{4,}[/-]?\w*|CIN:\s*[A-Z0-9]+|GSTIN:\s*[A-Z0-9]+|REG[A-Z0-9\-]+|[A-Z]{3,}-\d{3,})\b"
+    return list(dict.fromkeys(re.findall(pattern, text, re.IGNORECASE)))[:15]
+
+
+def _extract_numbers_from_text(text: str) -> List[str]:
+    pattern = r"(?:₹|\$|€|Rs\.?|INR)?\s*(\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?|\d+(?:\.\d{1,2})?)"
+    matches = re.findall(pattern, text)
+    return list(dict.fromkeys([m for m in matches if len(m) > 1]))[:15]
+
+
+def _calculate_text_similarity(text_a: str, text_b: str) -> float:
+    if not text_a or not text_b:
+        return 0.0
+    words_a = set(re.findall(r"\w+", text_a.lower()))
+    words_b = set(re.findall(r"\w+", text_b.lower()))
+    if not words_a or not words_b:
+        return 0.0
+    jaccard = len(words_a & words_b) / max(1, len(words_a | words_b))
+    seq_ratio = difflib.SequenceMatcher(
+        None, text_a[:3000].lower(), text_b[:3000].lower()
+    ).ratio()
+    return round((jaccard * 0.4 + seq_ratio * 0.6) * 100, 1)
+
+
+@router.post("/compare", response_model=CompareResult)
+async def compare_documents(
+    payload: CompareRequest,
+    db: Session = Depends(get_db),
+) -> CompareResult:
+    """Perform side-by-side comparative analysis of two documents."""
+    doc_a = db.execute(
+        select(Document).where(Document.id == payload.document_id_a)
+    ).scalar_one_or_none()
+    doc_b = db.execute(
+        select(Document).where(Document.id == payload.document_id_b)
+    ).scalar_one_or_none()
+
+    if doc_a is None or doc_b is None:
+        raise HTTPException(status_code=404, detail="One or both documents not found")
+
+    # Fetch latest analysis or run
+    analysis_a_row = db.execute(
+        select(Analysis)
+        .where(Analysis.document_id == doc_a.id)
+        .order_by(Analysis.created_at.desc())
+    ).scalar_one_or_none()
+    if analysis_a_row is None:
+        analysis_a = _execute_analysis(doc_a, db)
+    else:
+        analysis_a = _to_analysis_result(analysis_a_row)
+
+    analysis_b_row = db.execute(
+        select(Analysis)
+        .where(Analysis.document_id == doc_b.id)
+        .order_by(Analysis.created_at.desc())
+    ).scalar_one_or_none()
+    if analysis_b_row is None:
+        analysis_b = _execute_analysis(doc_b, db)
+    else:
+        analysis_b = _to_analysis_result(analysis_b_row)
+
+    path_a = settings.temp_dir_path / doc_a.filename
+    path_b = settings.temp_dir_path / doc_b.filename
+    proc_a = _document_processor.process_document(str(path_a), doc_a.file_type) if path_a.is_file() else {}
+    proc_b = _document_processor.process_document(str(path_b), doc_b.file_type) if path_b.is_file() else {}
+
+    text_a = proc_a.get("text", "")
+    text_b = proc_b.get("text", "")
+    meta_a = proc_a.get("metadata", {})
+    meta_b = proc_b.get("metadata", {})
+
+    similarity = _calculate_text_similarity(text_a, text_b)
+    dates_a = _extract_dates_from_text(text_a)
+    dates_b = _extract_dates_from_text(text_b)
+    common_dates = list(set(dates_a) & set(dates_b))
+
+    ids_a = _extract_ids_from_text(text_a)
+    ids_b = _extract_ids_from_text(text_b)
+    common_ids = list(set(ids_a) & set(ids_b))
+
+    nums_a = _extract_numbers_from_text(text_a)
+    nums_b = _extract_numbers_from_text(text_b)
+    common_numbers = list(set(nums_a) & set(nums_b))
+
+    words_a = set(re.findall(r"\b[A-Z][a-z]{3,}\b", text_a))
+    words_b = set(re.findall(r"\b[A-Z][a-z]{3,}\b", text_b))
+    common_names = list(words_a & words_b)[:10]
+
+    differences: List[str] = []
+    if dates_a and dates_b and dates_a != dates_b:
+        d_a_str = dates_a[0]
+        d_b_str = dates_b[0]
+        if d_a_str != d_b_str:
+            differences.append(
+                f"Date discrepancy detected: Document A states '{d_a_str}' while Document B states '{d_b_str}'"
+            )
+
+    dec_a_str = getattr(analysis_a.decision, "value", str(analysis_a.decision))
+    dec_b_str = getattr(analysis_b.decision, "value", str(analysis_b.decision))
+    if dec_a_str != dec_b_str:
+        differences.append(
+            f"Classification decision disparity: Document A is '{dec_a_str}' (Risk: {analysis_a.risk_score:.0f}) vs Document B '{dec_b_str}' (Risk: {analysis_b.risk_score:.0f})"
+        )
+
+    creator_a = str(meta_a.get("creator") or meta_a.get("author") or "").strip()
+    creator_b = str(meta_b.get("creator") or meta_b.get("author") or "").strip()
+    if creator_a and creator_b and creator_a.lower() != creator_b.lower():
+        differences.append(
+            f"Metadata origin mismatch: Document A created by '{creator_a}' vs Document B '{creator_b}'"
+        )
+
+    if doc_a.pages != doc_b.pages:
+        differences.append(
+            f"Document length variance: {doc_a.pages} pages vs {doc_b.pages} pages"
+        )
+
+    field_comparison = [
+        ComparedField(
+            attribute="Document Type",
+            value_a=str(doc_a.document_type),
+            value_b=str(doc_b.document_type),
+            matches=doc_a.document_type == doc_b.document_type,
+        ),
+        ComparedField(
+            attribute="Risk Score",
+            value_a=f"{analysis_a.risk_score:.1f}/100",
+            value_b=f"{analysis_b.risk_score:.1f}/100",
+            matches=abs(analysis_a.risk_score - analysis_b.risk_score) < 5.0,
+        ),
+        ComparedField(
+            attribute="Decision",
+            value_a=dec_a_str,
+            value_b=dec_b_str,
+            matches=dec_a_str == dec_b_str,
+        ),
+        ComparedField(
+            attribute="Page Count",
+            value_a=str(doc_a.pages),
+            value_b=str(doc_b.pages),
+            matches=doc_a.pages == doc_b.pages,
+        ),
+        ComparedField(
+            attribute="Word Count",
+            value_a=str(doc_a.words),
+            value_b=str(doc_b.words),
+            matches=abs(doc_a.words - doc_b.words) < 20,
+        ),
+        ComparedField(
+            attribute="Detected Tables",
+            value_a=str(doc_a.tables_detected),
+            value_b=str(doc_b.tables_detected),
+            matches=doc_a.tables_detected == doc_b.tables_detected,
+        ),
+        ComparedField(
+            attribute="Primary Reference Date",
+            value_a=dates_a[0] if dates_a else "None",
+            value_b=dates_b[0] if dates_b else "None",
+            matches=bool(dates_a and dates_b and dates_a[0] == dates_b[0]),
+        ),
+        ComparedField(
+            attribute="Metadata Author",
+            value_a=creator_a or "Not specified",
+            value_b=creator_b or "Not specified",
+            matches=creator_a.lower() == creator_b.lower() if creator_a and creator_b else True,
+        ),
+    ]
+
+    markers_a_set = {m.name for m in analysis_a.markers}
+    markers_b_set = {m.name for m in analysis_b.markers}
+    common_markers = list(markers_a_set & markers_b_set)
+
+    verdict = (
+        "Potential inconsistency between documents."
+        if differences
+        else "Documents appear consistent with high structural and semantic alignment."
+    )
+
+    summary = ComparisonSummary(
+        risk_difference=round(abs(analysis_a.risk_score - analysis_b.risk_score), 2),
+        common_markers=common_markers,
+        decision_matches=analysis_a.decision == analysis_b.decision,
+        most_similar_metric="Textual Structure" if similarity > 60 else "Layout Geometry",
+        verdict=verdict,
+    )
+
+    return CompareResult(
+        document_a=_to_document_info(doc_a),
+        document_b=_to_document_info(doc_b),
+        analysis_a=analysis_a,
+        analysis_b=analysis_b,
+        comparison=summary,
+        text_similarity=similarity,
+        common_names=common_names,
+        common_dates=common_dates,
+        common_numbers=common_numbers,
+        common_ids=common_ids,
+        field_comparison=field_comparison,
+        differences=differences,
+    )
+
+
+@router.get("/documents/{document_id}/file")
+async def get_document_file(
+    document_id: int,
+    db: Session = Depends(get_db),
+):
+    """Serve the raw uploaded document file for preview in the UI."""
+    document = db.execute(
+        select(Document).where(Document.id == document_id)
+    ).scalar_one_or_none()
+    if document is None:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    file_path = settings.temp_dir_path / document.filename
+    if not file_path.is_file():
+        raise HTTPException(status_code=404, detail="Stored document file not found")
+
+    ext = document.file_type.lower().lstrip(".")
+    mime_types = {
+        "pdf": "application/pdf",
+        "png": "image/png",
+        "jpg": "image/jpeg",
+        "jpeg": "image/jpeg",
+        "txt": "text/plain",
+        "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "doc": "application/msword",
+    }
+    media_type = mime_types.get(ext, "application/octet-stream")
+
+    return FileResponse(
+        path=str(file_path),
+        media_type=media_type,
+        filename=document.original_filename,
+    )
+
+
+@router.get("/documents/{document_id}/content")
+async def get_document_content(
+    document_id: int,
+    db: Session = Depends(get_db),
+):
+    """Return extracted text, snippets, and page metadata for document viewer."""
+    document = db.execute(
+        select(Document).where(Document.id == document_id)
+    ).scalar_one_or_none()
+    if document is None:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    file_path = settings.temp_dir_path / document.filename
+    if not file_path.is_file():
+        raise HTTPException(status_code=404, detail="Stored document file not found")
+
+    processed = _document_processor.process_document(str(file_path), document.file_type)
+    return {
+        "document_id": document.id,
+        "filename": document.original_filename,
+        "file_type": document.file_type,
+        "text": processed.get("text", ""),
+        "stats": processed.get("stats", {}),
+        "metadata": processed.get("metadata", {}),
+    }
 
 
 @router.get("/results/{analysis_id}", response_model=AnalysisResult)

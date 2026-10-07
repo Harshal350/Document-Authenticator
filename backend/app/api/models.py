@@ -10,7 +10,7 @@ import inspect
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -196,6 +196,114 @@ async def get_model_performance(
     ]
     logger.info("Returned performance data for %d models", len(models))
     return ModelPerformanceList(total_models=len(models), models=models)
+
+
+@router.get("/models/dataset/info")
+async def get_dataset_info(
+    dataset_path: Optional[str] = Query(None),
+) -> Dict[str, Any]:
+    """Return dataset statistics, sample counts and class balance."""
+    import pandas as pd
+
+    dataset = _resolve_dataset_path(dataset_path)
+    try:
+        df = pd.read_csv(str(dataset), comment="#")
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=f"Could not read dataset: {exc}")
+
+    cols = list(df.columns)
+    text_col = next(
+        (c for c in cols if str(c).strip().lower() in ("text", "content", "body")),
+        cols[1] if len(cols) > 1 else cols[0],
+    )
+    label_col = next(
+        (c for c in cols if str(c).strip().lower() in ("label", "target", "class", "is_fake")),
+        cols[-1],
+    )
+
+    class_dist: Dict[str, int] = {}
+    if label_col in df.columns:
+        counts = df[label_col].value_counts().to_dict()
+        class_dist = {
+            "Genuine (0)": int(counts.get(0, counts.get("0", counts.get("genuine", 0)))),
+            "Fake (1)": int(counts.get(1, counts.get("1", counts.get("fake", 0)))),
+        }
+
+    total_rows = len(df)
+    train_count = int(total_rows * 0.8)
+    test_count = total_rows - train_count
+
+    return {
+        "dataset_name": dataset.name,
+        "dataset_path": str(dataset),
+        "total_rows": total_rows,
+        "training_samples": train_count,
+        "testing_samples": test_count,
+        "columns": cols,
+        "text_column": text_col,
+        "label_column": label_col,
+        "class_distribution": class_dist,
+        "is_demo_data": dataset.name == "documents.csv",
+    }
+
+
+@router.post("/models/dataset/upload")
+async def upload_dataset(
+    file: UploadFile = File(...),
+) -> Dict[str, Any]:
+    """Upload a custom CSV training dataset."""
+    import pandas as pd
+
+    filename = file.filename or "dataset.csv"
+    if not filename.lower().endswith(".csv"):
+        raise HTTPException(
+            status_code=400, detail="Only CSV datasets are accepted (.csv)"
+        )
+
+    content = await file.read()
+    if not content:
+        raise HTTPException(status_code=400, detail="Uploaded file is empty")
+
+    save_dir = PROJECT_ROOT / "data" / "training"
+    save_dir.mkdir(parents=True, exist_ok=True)
+    target_path = save_dir / f"custom_{filename}"
+    target_path.write_bytes(content)
+
+    try:
+        df = pd.read_csv(str(target_path), comment="#")
+    except Exception as exc:
+        target_path.unlink(missing_ok=True)
+        raise HTTPException(status_code=400, detail=f"Invalid CSV file: {exc}")
+
+    cols = list(df.columns)
+    text_col = next(
+        (c for c in cols if str(c).strip().lower() in ("text", "content", "body")),
+        cols[1] if len(cols) > 1 else cols[0],
+    )
+    label_col = next(
+        (c for c in cols if str(c).strip().lower() in ("label", "target", "class", "is_fake")),
+        cols[-1],
+    )
+    class_dist: Dict[str, int] = {}
+    if label_col in df.columns:
+        counts = df[label_col].value_counts().to_dict()
+        class_dist = {
+            "Genuine (0)": int(counts.get(0, counts.get("0", counts.get("genuine", 0)))),
+            "Fake (1)": int(counts.get(1, counts.get("1", counts.get("fake", 0)))),
+        }
+
+    return {
+        "message": "Dataset uploaded successfully",
+        "dataset_name": target_path.name,
+        "dataset_path": str(target_path),
+        "total_rows": len(df),
+        "training_samples": int(len(df) * 0.8),
+        "testing_samples": len(df) - int(len(df) * 0.8),
+        "columns": cols,
+        "suggested_text_column": text_col,
+        "suggested_label_column": label_col,
+        "class_distribution": class_dist,
+    }
 
 
 @router.post("/models/train")

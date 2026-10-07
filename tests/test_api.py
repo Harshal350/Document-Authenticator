@@ -194,3 +194,73 @@ class TestDashboard:
         assert len(data["risk_distribution"]) == 3
         assert "recent_analyses" in data
         assert "files_this_week" in data
+
+
+# --------------------------------------------------------------------------- #
+# Batch Analysis & Document Comparison
+# --------------------------------------------------------------------------- #
+class TestBatchAndCompare:
+    def test_batch_analyze(self, client):
+        doc1 = _upload(client, "doc1.txt")
+        doc2 = _upload(client, "doc2.txt")
+        response = client.post(
+            "/api/v1/analyze/batch", json={"document_ids": [doc1, doc2]}
+        )
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total_files"] == 2
+        assert data["successful"] == 2
+        assert len(data["results"]) == 2
+        assert data["results"][0]["status"] == "success"
+
+    def test_compare_documents(self, client):
+        doc1 = _upload(client, "invoice_a.txt")
+        doc2 = _upload(client, "invoice_b.txt")
+        response = client.post(
+            "/api/v1/compare",
+            json={"document_id_a": doc1, "document_id_b": doc2},
+        )
+        assert response.status_code == 200
+        data = response.json()
+        assert "text_similarity" in data
+        assert "comparison" in data
+        assert "field_comparison" in data
+        assert len(data["field_comparison"]) > 0
+        assert data["comparison"]["verdict"] != ""
+
+    def test_document_content_and_file(self, client):
+        doc = _upload(client, "preview.txt")
+        content_resp = client.get(f"/api/v1/documents/{doc}/content")
+        assert content_resp.status_code == 200
+        content_data = content_resp.json()
+        assert content_data["document_id"] == doc
+        assert "text" in content_data
+
+        file_resp = client.get(f"/api/v1/documents/{doc}/file")
+        assert file_resp.status_code == 200
+        assert len(file_resp.content) > 0
+
+
+# --------------------------------------------------------------------------- #
+# Dataset Management
+# --------------------------------------------------------------------------- #
+class TestDatasetManagement:
+    def test_dataset_info(self, client):
+        response = client.get("/api/v1/models/dataset/info")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total_rows"] > 0
+        assert "class_distribution" in data
+
+    def test_dataset_upload(self, client):
+        csv_content = (
+            "document_id,text,label\n"
+            "D1,Certificate of Achievement,0\n"
+            "D2,Fake Invoice Total Mismatch,1\n"
+        ).encode("utf-8")
+        files = {"file": ("test_data.csv", csv_content, "text/csv")}
+        response = client.post("/api/v1/models/dataset/upload", files=files)
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total_rows"] == 2
+        assert "suggested_text_column" in data
