@@ -21,6 +21,7 @@ import DecisionBadge from '../components/DecisionBadge'
 import ErrorState from '../components/ErrorState'
 import Spinner from '../components/Spinner'
 import Card from '../components/Card'
+import DocumentViewer from '../components/DocumentViewer'
 import {
   formatBytes,
   formatDate,
@@ -234,6 +235,14 @@ export default function AnalysisResult() {
           </div>
         )}
       </Card>
+
+      {/* --- Document Inspection Viewer (§16) --- */}
+      <DocumentViewer
+        documentId={analysis.document_id || doc.id}
+        filename={doc.original_filename}
+        fileType={doc.file_type}
+        markers={markers}
+      />
 
       {/* --- Detected markers --- */}
       <Card

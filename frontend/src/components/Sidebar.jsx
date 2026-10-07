@@ -1,5 +1,13 @@
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, FileSearch, Activity, Clock } from 'lucide-react'
+import {
+  LayoutDashboard,
+  FileSearch,
+  GitCompare,
+  Layers,
+  Activity,
+  Clock,
+  BookOpen,
+} from 'lucide-react'
 
 export default function Sidebar() {
   const linkClasses = ({ isActive }) =>
@@ -12,8 +20,11 @@ export default function Sidebar() {
   const navItems = [
     { to: '/', label: 'Dashboard', icon: LayoutDashboard, end: true },
     { to: '/analyze', label: 'Analyze Document', icon: FileSearch },
+    { to: '/compare', label: 'Compare Documents', icon: GitCompare },
+    { to: '/batch', label: 'Batch Scan', icon: Layers },
     { to: '/models', label: 'Model Performance', icon: Activity },
     { to: '/history', label: 'History', icon: Clock },
+    { to: '/about', label: 'Architecture & Viva', icon: BookOpen },
   ]
 
   return (

@@ -6,15 +6,21 @@ import Sidebar from './components/Sidebar'
 import Dashboard from './pages/Dashboard'
 import AnalyzeDocument from './pages/AnalyzeDocument'
 import AnalysisResult from './pages/AnalysisResult'
+import CompareDocuments from './pages/CompareDocuments'
+import BatchScan from './pages/BatchScan'
 import ModelPerformance from './pages/ModelPerformance'
 import History from './pages/History'
+import About from './pages/About'
 import api from './services/api'
 
 const MOBILE_NAV = [
   { to: '/', label: 'Dashboard', end: true },
   { to: '/analyze', label: 'Analyze' },
+  { to: '/compare', label: 'Compare' },
+  { to: '/batch', label: 'Batch' },
   { to: '/models', label: 'Models' },
   { to: '/history', label: 'History' },
+  { to: '/about', label: 'About' },
 ]
 
 export default function App() {
@@ -105,8 +111,11 @@ export default function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/analyze" element={<AnalyzeDocument />} />
               <Route path="/analysis/:analysisId" element={<AnalysisResult />} />
+              <Route path="/compare" element={<CompareDocuments />} />
+              <Route path="/batch" element={<BatchScan />} />
               <Route path="/models" element={<ModelPerformance />} />
               <Route path="/history" element={<History />} />
+              <Route path="/about" element={<About />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </div>

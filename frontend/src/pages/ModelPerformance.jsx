@@ -6,6 +6,9 @@ import {
   Loader2,
   Info,
   CheckCircle2,
+  Database,
+  UploadCloud,
+  FileSpreadsheet,
 } from 'lucide-react'
 import {
   ResponsiveContainer,
@@ -51,6 +54,21 @@ export default function ModelPerformance() {
   const [trainResult, setTrainResult] = useState(null)
   const [trainError, setTrainError] = useState(null)
 
+  const [datasetInfo, setDatasetInfo] = useState(null)
+  const [datasetPath, setDatasetPath] = useState(null)
+  const [uploadingDataset, setUploadingDataset] = useState(false)
+  const [uploadMsg, setUploadMsg] = useState(null)
+  const [uploadErr, setUploadErr] = useState(null)
+
+  const loadDataset = useCallback(async (path) => {
+    try {
+      const info = await api.getDatasetInfo(path)
+      setDatasetInfo(info)
+    } catch {
+      // Optional fallback if dataset is unavailable
+    }
+  }, [])
+
   const load = useCallback(async () => {
     setLoading(true)
     setError(null)
@@ -75,10 +93,11 @@ export default function ModelPerformance() {
     }, 2500)
 
     try {
-      const result = await api.trainModels()
+      const result = await api.trainModels(datasetPath)
       setTrainResult(result)
       setTrainingStage(5)
       await load()
+      await loadDataset(datasetPath)
     } catch (err) {
       setTrainError(err.message)
     } finally {
@@ -87,9 +106,29 @@ export default function ModelPerformance() {
     }
   }
 
+  const handleDatasetUpload = async (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploadingDataset(true)
+    setUploadMsg(null)
+    setUploadErr(null)
+    try {
+      const res = await api.uploadDataset(file)
+      setDatasetPath(res.dataset_path)
+      setUploadMsg(`Successfully uploaded "${res.dataset_name}" (${res.total_rows} rows). Ready for training!`)
+      await loadDataset(res.dataset_path)
+    } catch (err) {
+      setUploadErr(err.message || 'Dataset upload failed')
+    } finally {
+      setUploadingDataset(false)
+      e.target.value = ''
+    }
+  }
+
   useEffect(() => {
     load()
-  }, [load])
+    loadDataset()
+  }, [load, loadDataset])
 
   const chartData = useMemo(
     () =>
@@ -222,6 +261,152 @@ export default function ModelPerformance() {
         <ErrorState message={error} onRetry={load} />
       ) : (
         <>
+          {/* --- Dataset Management & Retraining (§18) --- */}
+          <Card
+            title="Training Dataset & Corpus Management"
+            subtitle="Inspect training corpus balance, sample splits, and upload custom datasets"
+            bodyClassName="p-5"
+          >
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+              <div className="space-y-4 lg:col-span-7">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <Database size={16} className="text-accent" />
+                    <span className="font-mono text-sm font-semibold text-zinc-100">
+                      {datasetInfo?.dataset_name || 'documents.csv'}
+                    </span>
+                    {datasetInfo?.is_demo_data && (
+                      <span className="rounded border border-accent/40 bg-accent/10 px-2 py-0.5 font-mono text-[10px] text-accent uppercase">
+                        Standard Corpus
+                      </span>
+                    )}
+                    {datasetPath && !datasetInfo?.is_demo_data && (
+                      <span className="rounded border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 font-mono text-[10px] text-amber-400 uppercase">
+                        Custom Dataset
+                      </span>
+                    )}
+                  </div>
+                  <span className="font-mono text-xs text-zinc-500">
+                    80/20 Stratified Split
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  <div className="rounded-md border border-edge bg-carbon p-3">
+                    <span className="text-[11px] text-zinc-500">Total Samples</span>
+                    <p className="mono mt-1 text-lg font-semibold text-zinc-100">
+                      {datasetInfo?.total_rows ?? '—'}
+                    </p>
+                  </div>
+                  <div className="rounded-md border border-edge bg-carbon p-3">
+                    <span className="text-[11px] text-zinc-500">Training (80%)</span>
+                    <p className="mono mt-1 text-lg font-semibold text-zinc-100">
+                      {datasetInfo?.training_samples ?? '—'}
+                    </p>
+                  </div>
+                  <div className="rounded-md border border-edge bg-carbon p-3">
+                    <span className="text-[11px] text-zinc-500">Held-Out Test (20%)</span>
+                    <p className="mono mt-1 text-lg font-semibold text-zinc-100">
+                      {datasetInfo?.testing_samples ?? '—'}
+                    </p>
+                  </div>
+                  <div className="rounded-md border border-edge bg-carbon p-3">
+                    <span className="text-[11px] text-zinc-500">Columns</span>
+                    <p className="mono mt-1 text-lg font-semibold text-zinc-100">
+                      {datasetInfo?.columns?.length ?? '—'}
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                    Class Distribution & Supervision Target
+                  </p>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="flex items-center gap-2 rounded-md border border-edge bg-carbon px-3 py-1.5 text-xs">
+                      <span className="h-2 w-2 rounded-full bg-accent" />
+                      <span className="text-zinc-400">Genuine (Label 0):</span>
+                      <span className="mono font-semibold text-zinc-100">
+                        {datasetInfo?.class_distribution?.['Genuine (0)'] ?? '—'}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 rounded-md border border-edge bg-carbon px-3 py-1.5 text-xs">
+                      <span className="h-2 w-2 rounded-full bg-red-400" />
+                      <span className="text-zinc-400">Fake / Tampered (Label 1):</span>
+                      <span className="mono font-semibold text-zinc-100">
+                        {datasetInfo?.class_distribution?.['Fake (1)'] ?? '—'}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="mt-2 text-xs text-zinc-500">
+                    Feature text column: <span className="mono text-zinc-300">{datasetInfo?.text_column || 'text'}</span> · Target label:{' '}
+                    <span className="mono text-zinc-300">{datasetInfo?.label_column || 'label'}</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Upload area */}
+              <div className="flex flex-col justify-between rounded-lg border border-edge/80 bg-carbon p-4 lg:col-span-5">
+                <div>
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                    <UploadCloud size={15} className="text-accent" />
+                    Upload Custom Training Dataset
+                  </div>
+                  <p className="mt-1 text-xs text-zinc-500">
+                    Supply a custom CSV file with document text and binary supervision labels (0 = Genuine, 1 = Fake).
+                  </p>
+
+                  <div className="mt-4">
+                    <label className="flex cursor-pointer flex-col items-center justify-center rounded-lg border border-dashed border-zinc-700 bg-surface/50 p-4 transition-colors hover:border-accent hover:bg-surface">
+                      <FileSpreadsheet size={24} className="mb-1 text-zinc-400" />
+                      <span className="text-xs font-medium text-zinc-200">
+                        {uploadingDataset ? 'Uploading dataset…' : 'Choose CSV dataset'}
+                      </span>
+                      <span className="mt-0.5 text-[10px] text-zinc-500">.csv format only</span>
+                      <input
+                        type="file"
+                        accept=".csv"
+                        className="hidden"
+                        disabled={uploadingDataset || training}
+                        onChange={handleDatasetUpload}
+                      />
+                    </label>
+                  </div>
+
+                  {uploadMsg && (
+                    <div className="mt-3 rounded border border-accent/40 bg-accent/10 px-3 py-2 text-xs text-accent">
+                      {uploadMsg}
+                    </div>
+                  )}
+                  {uploadErr && (
+                    <div className="mt-3 rounded border border-red-900/60 bg-red-950/30 px-3 py-2 text-xs text-red-400">
+                      {uploadErr}
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-4 flex items-center justify-between border-t border-edge/60 pt-3">
+                  <span className="text-[11px] text-zinc-500">
+                    {datasetPath ? 'Custom dataset staged' : 'Standard corpus loaded'}
+                  </span>
+                  {datasetPath && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setDatasetPath(null)
+                        loadDataset()
+                        setUploadMsg(null)
+                      }}
+                      className="text-[11px] text-zinc-400 underline hover:text-zinc-200"
+                    >
+                      Reset to default
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          </Card>
+
           {/* --- Metrics table --- */}
           <Card
             title="Evaluation Metrics"

@@ -93,3 +93,22 @@
     @apply w-full bg-carbon border border-edge rounded-lg px-3.5 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/30 transition-colors;
   }
 }
+
+@keyframes laserScan {
+  0% {
+    top: 2%;
+    opacity: 0.7;
+  }
+  50% {
+    top: 96%;
+    opacity: 1;
+  }
+  100% {
+    top: 2%;
+    opacity: 0.7;
+  }
+}
+
+.animate-laser-scan {
+  animation: laserScan 3.2s ease-in-out infinite;
+}

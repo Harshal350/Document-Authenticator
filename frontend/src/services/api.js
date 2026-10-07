@@ -117,8 +117,61 @@ const api = {
   },
 
   /** Trigger model retraining + evaluation. */
-  trainModels() {
-    return request('/models/train', { method: 'POST', timeout: 900000 })
+  trainModels(datasetPath) {
+    const query = datasetPath ? `?dataset_path=${encodeURIComponent(datasetPath)}` : ''
+    return request(`/models/train${query}`, { method: 'POST', timeout: 900000 })
+  },
+
+  /** Upload multiple documents. */
+  uploadBatch(files) {
+    const form = new FormData()
+    Array.from(files).forEach((file) => form.append('files', file))
+    return request('/upload/batch', { method: 'POST', body: form, timeout: 300000 })
+  },
+
+  /** Batch analyze multiple documents. */
+  analyzeBatch(documentIds) {
+    return request('/analyze/batch', {
+      method: 'POST',
+      body: { document_ids: documentIds },
+      timeout: 600000,
+    })
+  },
+
+  /** Compare two documents side-by-side. */
+  compareDocuments(documentIdA, documentIdB) {
+    return request('/compare', {
+      method: 'POST',
+      body: { document_id_a: documentIdA, document_id_b: documentIdB },
+      timeout: 300000,
+    })
+  },
+
+  /** Get extracted text content and stats for document viewer. */
+  getDocumentContent(documentId) {
+    return request(`/documents/${documentId}/content`)
+  },
+
+  /** Get raw document file URL. */
+  getDocumentFileUrl(documentId) {
+    return `${API_BASE_URL}/documents/${documentId}/file`
+  },
+
+  /** Get dataset information and sample distributions. */
+  getDatasetInfo(datasetPath) {
+    const query = datasetPath ? `?dataset_path=${encodeURIComponent(datasetPath)}` : ''
+    return request(`/models/dataset/info${query}`)
+  },
+
+  /** Upload a custom CSV training dataset. */
+  uploadDataset(file) {
+    const form = new FormData()
+    form.append('file', file)
+    return request('/models/dataset/upload', {
+      method: 'POST',
+      body: form,
+      timeout: 180000,
+    })
   },
 
   /** Generate a PDF forensic report for an analysis. */

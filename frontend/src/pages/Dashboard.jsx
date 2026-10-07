@@ -8,6 +8,11 @@ import {
   Scale,
   PieChart as PieIcon,
   ArrowRight,
+  ScanSearch,
+  Layers,
+  GitCompare,
+  Activity,
+  CheckCircle2,
 } from 'lucide-react'
 import {
   ResponsiveContainer,
@@ -119,13 +124,122 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-semibold tracking-tight text-zinc-50">
-          Dashboard
-        </h1>
-        <p className="mt-1 text-sm text-zinc-500">
-          Aggregate forensic pipeline statistics across all analyzed documents.
-        </p>
+      {/* --- Hero Section (§12) --- */}
+      <div className="relative overflow-hidden rounded-xl border border-edge bg-gradient-to-br from-carbon via-[#0d0d0d] to-night p-6 lg:p-8">
+        <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none" />
+
+        <div className="relative grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+          <div className="space-y-4 lg:col-span-7">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-mono text-xs font-medium text-accent">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              REAL-TIME DOCUMENT FORENSICS & VERIFICATION
+            </div>
+
+            <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+              Detect suspicious documents <br className="hidden sm:inline" />
+              <span className="text-accent">before they become a problem.</span>
+            </h1>
+
+            <p className="max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+              AI-assisted document analysis using machine learning, OCR, structural analysis and explainable risk scoring to protect against synthetic tampering, text manipulation, and counterfeit identities.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <Link to="/analyze" className="btn btn-accent px-5 py-2.5 font-medium shadow-lg shadow-accent/10">
+                <ScanSearch size={16} />
+                Analyze Document
+              </Link>
+              <Link to="/batch" className="btn btn-ghost px-4 py-2.5">
+                <Layers size={16} />
+                Batch Scan
+              </Link>
+              <Link to="/compare" className="btn btn-ghost px-4 py-2.5">
+                <GitCompare size={16} />
+                Compare Documents
+              </Link>
+              <Link to="/models" className="btn btn-ghost px-4 py-2.5">
+                <Activity size={16} />
+                Model Performance
+              </Link>
+            </div>
+          </div>
+
+          {/* Forensic Scanner Animation Mockup */}
+          <div className="lg:col-span-5">
+            <div className="relative mx-auto max-w-sm rounded-lg border border-edge bg-carbon/90 p-4 shadow-2xl backdrop-blur">
+              <div className="flex items-center justify-between border-b border-edge/60 pb-3 text-xs">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-red-500/80" />
+                    <span className="h-2 w-2 rounded-full bg-yellow-500/80" />
+                    <span className="h-2 w-2 rounded-full bg-accent/80" />
+                  </div>
+                  <span className="font-mono text-[11px] text-zinc-400">SPECIMEN_VERIFY.PDF</span>
+                </div>
+                <span className="font-mono text-[10px] text-accent">SHA-256 VALIDATED</span>
+              </div>
+
+              <div className="relative mt-3 h-48 overflow-hidden rounded border border-edge/40 bg-[#080808] p-4">
+                <div className="space-y-2.5 opacity-60">
+                  <div className="flex items-center justify-between">
+                    <div className="h-2.5 w-28 rounded bg-zinc-700" />
+                    <div className="h-2.5 w-12 rounded bg-zinc-800" />
+                  </div>
+                  <div className="h-1.5 w-full rounded bg-zinc-800" />
+                  <div className="h-1.5 w-5/6 rounded bg-zinc-800" />
+                  <div className="h-1.5 w-4/6 rounded bg-zinc-800" />
+
+                  <div className="my-2.5 grid grid-cols-2 gap-2 pt-1">
+                    <div className="h-7 rounded border border-edge/50 bg-surface/50 p-1.5">
+                      <div className="h-1.5 w-10 rounded bg-zinc-700" />
+                      <div className="mt-1 h-1.5 w-16 rounded bg-zinc-600" />
+                    </div>
+                    <div className="h-7 rounded border border-edge/50 bg-surface/50 p-1.5">
+                      <div className="h-1.5 w-12 rounded bg-zinc-700" />
+                      <div className="mt-1 h-1.5 w-14 rounded bg-zinc-600" />
+                    </div>
+                  </div>
+
+                  <div className="h-1.5 w-full rounded bg-zinc-800" />
+                  <div className="h-1.5 w-3/4 rounded bg-zinc-800" />
+                </div>
+
+                {/* Laser scan line with glow */}
+                <div className="pointer-events-none absolute left-0 right-0 animate-laser-scan">
+                  <div className="h-[2px] w-full bg-accent shadow-[0_0_12px_2px_rgba(34,197,94,0.9)]" />
+                  <div className="h-8 w-full bg-gradient-to-b from-accent/20 to-transparent" />
+                </div>
+
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between rounded border border-edge/70 bg-night/90 px-2.5 py-1.5 font-mono text-[10px] backdrop-blur">
+                  <span className="flex items-center gap-1.5 text-accent">
+                    <CheckCircle2 size={12} />
+                    SCANNING: OK
+                  </span>
+                  <span className="text-zinc-400">TAMPER SCORE: 0.02</span>
+                </div>
+              </div>
+
+              <div className="mt-3 flex items-center justify-between font-mono text-[11px] text-zinc-500">
+                <span>PIPELINE: OCR + ML + RULES</span>
+                <span className="text-accent">LIVE MONITOR</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between border-t border-edge/50 pt-2">
+        <div>
+          <h2 className="text-base font-semibold tracking-tight text-zinc-100">
+            System Overview & Metrics
+          </h2>
+          <p className="text-xs text-zinc-500">
+            Aggregate forensic pipeline statistics across all processed documents.
+          </p>
+        </div>
       </div>
 
       {/* --- Stat cards --- */}
