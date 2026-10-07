@@ -57,7 +57,12 @@ Unlike naive keyword-matching or black-box classifiers, DocuGuard combines:
   - `60 – 100`: **Likely Fake**
 - [x] Store scan history and audit logs in an SQLite database with SQLAlchemy ORM.
 - [x] Generate downloadable, publication-grade forensic PDF reports using ReportLab.
-- [x] Provide a polished, modern cybersecurity-style UI (dark palette `#0A0A0A`, emerald `#10B981` accents, zero gimmicky glassmorphism).
+- [x] Provide a polished, modern cybersecurity-style UI (dark palette `#000000`, emerald `#22C55E` accents, zero gimmicky glassmorphism).
+- [x] Interactive Document Canvas Previewer with zoom controls and highlighted forensic findings (§16).
+- [x] Dynamic Model Retraining & Dataset Upload UI with automatic schema inference and class balance metrics (§18).
+- [x] Side-by-Side Cross-Document Comparator with textual similarity, discrepancy alerts, and attribute matrix (§32).
+- [x] Multi-Document Batch Scanner with live queue execution and sortable forensic risk table (§33).
+- [x] Complete Viva Presentation Guide, Pipeline Visualization, and Team Contribution Breakdown (§39).
 
 ---
 
@@ -282,16 +287,22 @@ PYTHONPATH=backend .venv/bin/python -c "from app.ml.train import train_from_data
 | HTTP Method | Route | Description |
 | :--- | :--- | :--- |
 | `GET` | `/api/v1/health` | System health, database connection, and uptime |
-| `POST` | `/api/v1/upload` | Upload a document (`.pdf`, `.docx`, images, etc.) |
+| `POST` | `/api/v1/upload` | Upload a single document (`.pdf`, `.docx`, images, etc.) |
 | `POST` | `/api/v1/upload/batch` | Upload multiple documents simultaneously |
 | `POST` | `/api/v1/analyze/{document_id}` | Execute full forensic pipeline on an uploaded file |
+| `POST` | `/api/v1/analyze/batch` | Execute forensic pipeline in batch across multiple documents |
+| `POST` | `/api/v1/compare` | Cross-document comparison with similarity & discrepancy detection |
+| `GET` | `/api/v1/documents/{id}/file` | Serve raw uploaded document file for visual preview |
+| `GET` | `/api/v1/documents/{id}/content` | Retrieve extracted text, layout statistics, and page metadata |
 | `GET` | `/api/v1/results/{analysis_id}` | Retrieve comprehensive forensic analysis report |
 | `GET` | `/api/v1/history` | Paginated scan history with search and decision filter |
 | `DELETE` | `/api/v1/history/{analysis_id}` | Remove a scan record and its artifacts |
 | `GET` | `/api/v1/dashboard` | Aggregated forensic metrics and risk distributions |
 | `GET` | `/api/v1/models/performance` | Persisted evaluation metrics for all 3 ML models |
-| `POST` | `/api/v1/models/train` | Trigger model retraining and chart generation |
-| `GET` | `/api/v1/report/{analysis_id}` | Generate and download forensic PDF report |
+| `GET` | `/api/v1/models/dataset/info` | Inspect active training corpus size, columns, and class balance |
+| `POST` | `/api/v1/models/dataset/upload` | Upload custom CSV training dataset with automatic schema inference |
+| `POST` | `/api/v1/models/train` | Trigger model retraining and comparison chart generation |
+| `GET` | `/api/v1/report/{analysis_id}` | Generate and download forensic PDF report (ReportLab) |
 
 ---
 
@@ -398,13 +409,17 @@ DocGuard/
 │       ├── main.jsx                # React root mount
 │       ├── index.css               # Cybersecurity dark theme styles
 │       ├── pages/                  # Application views
-│       │   ├── Dashboard.jsx       # Overview metrics & distribution charts
+│       │   ├── Dashboard.jsx       # Overview metrics, hero laser scanner & distribution charts
 │       │   ├── AnalyzeDocument.jsx # File upload & analysis trigger
-│       │   ├── AnalysisResult.jsx  # Detailed forensic report view
-│       │   ├── ModelPerformance.jsx# ML comparative analysis charts & table
-│       │   └── History.jsx         # Scan history table with filtering
+│       │   ├── AnalysisResult.jsx  # Detailed forensic report view with embedded viewer
+│       │   ├── CompareDocuments.jsx# Side-by-side document discrepancy comparator (§32)
+│       │   ├── BatchScan.jsx       # Multi-document batch upload & scanner queue (§33)
+│       │   ├── ModelPerformance.jsx# ML comparative analysis & dataset upload UI (§18)
+│       │   ├── History.jsx         # Scan history table with filtering
+│       │   └── About.jsx           # Pipeline architecture & viva presentation guide (§39)
 │       ├── components/             # Reusable UI widgets
-│       │   ├── Sidebar.jsx         # Navigation sidebar
+│       │   ├── Sidebar.jsx         # Navigation sidebar with active route highlights
+│       │   ├── DocumentViewer.jsx  # Interactive canvas preview & marker inspector (§16)
 │       │   ├── RiskGauge.jsx       # Circular SVG risk score gauge
 │       │   ├── MarkerTable.jsx     # Detected anomaly breakdown
 │       │   ├── ModelBar.jsx        # Model prediction bars
@@ -412,7 +427,7 @@ DocGuard/
 │       │   ├── DecisionBadge.jsx   # Status indicator badge
 │       │   └── ErrorState.jsx      # Graceful error display
 │       └── services/
-│           └── api.js              # Axios/Fetch API client
+│           └── api.js              # Comprehensive REST API client
 ├── data/
 │   ├── markers.json                # Configurable forensic marker rules
 │   ├── training/
@@ -455,9 +470,10 @@ DocuGuard includes a comprehensive test suite using `pytest`:
 - Machine learning models reflect the characteristics of the training dataset provided.
 
 ### Future Scope
-- Multi-document cross-comparison mode (diffing two versions of a document).
-- Deep learning transformer backbones (DistilBERT / LayoutLM) for visual document understanding.
-- Docker & Docker Compose containerization for cloud deployments.
+- Deep learning transformer backbones (DistilBERT / LayoutLM) for multi-modal visual document understanding.
+- Docker & Docker Compose containerization for enterprise cloud deployments.
+- Multi-lingual OCR engines supporting non-Latin alphabets and regional Indian scripts.
+- Automated cryptographic document watermarking and tamper-resistant digital attestation.
 
 ---
 
